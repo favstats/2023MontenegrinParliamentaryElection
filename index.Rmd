@@ -1,5 +1,5 @@
 ---
-title: "2023 Greek legislative election"
+title: "2023 Montenegrin legislative election"
 subtitle: "How do political campaigns target voters?"
 author: "Fabio Votta - @favstats\n\nAlexandros Gotinakos - @gotinakos"
 date: "`r Sys.Date()`"
@@ -143,7 +143,7 @@ source("utils.R")
 
 ### Methodology
 
-In collaboration with [Who Targets Me](https://whotargets.me/), we monitored over 300 political advertisers in Greece during the 2023 Greek parliamantary election to better understand how campaigns use different targeting methods made available by Meta. To do this, we used data from the [Meta Ad Library](https://www.facebook.com/ads/library/), using the new 'Audience' data which gives some detail on how pages target their ads. 
+In collaboration with [Who Targets Me](https://whotargets.me/), we monitored over 300 political advertisers in Montenegro during the 2023 Montenegrin parliamantary election to better understand how campaigns use different targeting methods made available by Meta. To do this, we used data from the [Meta Ad Library](https://www.facebook.com/ads/library/), using the new 'Audience' data which gives some detail on how pages target their ads. 
 
 To better understand the election, we kept only advertisers who:
 
