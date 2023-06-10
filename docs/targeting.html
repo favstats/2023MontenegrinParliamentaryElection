@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -121,6 +58,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<script src="site_libs/proj4js-2.3.15/proj4.js"></script>
+<link href="site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="site_libs/highcharts-9.3.1/highcharts.js"></script>
+<script src="site_libs/highcharts-9.3.1/highcharts-3d.js"></script>
+<script src="site_libs/highcharts-9.3.1/highcharts-more.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/stock.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/map.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/data.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/exporting.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/drilldown.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/item-series.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/annotations.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/export-data.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/funnel.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/heatmap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/treemap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/sankey.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/organization.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/sunburst.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/vector.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/xrange.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/tilemap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/venn.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/gantt.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/timeline.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/bullet.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/lollipop.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/series-label.js"></script>
+<script src="site_libs/highcharts-9.3.1/plugins/motion.js"></script>
+<script src="site_libs/highcharts-9.3.1/custom/reset.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/boost.js"></script>
+<script src="site_libs/highchart-binding-0.9.4/highchart.js"></script>
+<link href="site_libs/htmlwdgtgrid-0.0.9/htmlwdgtgrid.css" rel="stylesheet">
 
 
 </head>
@@ -143,6 +124,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html">Spending</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./targeting.html" aria-current="page">Targeting</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./impressions.html">Impressions</a>
@@ -192,26 +176,320 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="quarto" class="level2">
-<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
-<p>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <a href="https://quarto.org" class="uri">https://quarto.org</a>.</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
+<p>This section shows spening per <em>targeting criteria</em> used by political parties to reach citizens in the run-up to the 2023 Montenegrin parliamentary election for the latest available data.</p>
+<section id="spending-per-targeting-criteria" class="level2">
+<h2 class="anchored" data-anchor-id="spending-per-targeting-criteria">Spending per Targeting Criteria</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">May 8th - Jun 6th 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">May 31st - Jun 6th 2023 (Last 7 days)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Overall</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">By Party</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="htmlwidget-1111cbf4845ee494c45b" style="width:100%;height:406px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1111cbf4845ee494c45b">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"\nBudget spent on targeting method (% of Total spend)"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"color":"darkgrey"}},"series":[{"group":"group","data":[{"spend_per":28355.0443148286,"target":"GEOGRAPHY: Entire Country","total":30872,"perc":91.847124626939,"n":1,"spend_perlab":"28,355","y":91.847124626939,"name":"GEOGRAPHY: Entire Country"},{"spend_per":4063.98139348173,"target":"Detailed","total":30872,"perc":13.1639718627939,"n":1,"spend_perlab":"4,064","y":13.1639718627939,"name":"Detailed"},{"spend_per":3783.54161176675,"target":"Custom Audiences","total":30872,"perc":12.2555766123567,"n":1,"spend_perlab":"3,784","y":12.2555766123567,"name":"Custom Audiences"},{"spend_per":3463.9290976179,"target":"Lookalike Audiences","total":30872,"perc":11.2202937860129,"n":1,"spend_perlab":"3,464","y":11.2202937860129,"name":"Lookalike Audiences"},{"spend_per":840.744166584909,"target":"GEOGRAPHY: City","total":30872,"perc":2.72332264377076,"n":1,"spend_perlab":"841","y":2.72332264377076,"name":"GEOGRAPHY: City"},{"spend_per":738.872048914356,"target":"GEOGRAPHY: Regions","total":30872,"perc":2.39334040202888,"n":1,"spend_perlab":"739","y":2.39334040202888,"name":"GEOGRAPHY: Regions"},{"spend_per":81.2723542914391,"target":"Gender","total":30872,"perc":0.263255876818603,"n":1,"spend_perlab":"81","y":0.263255876818603,"name":"Gender"},{"spend_per":5.46924388333413,"target":"Language","total":30872,"perc":0.0177158716096596,"n":1,"spend_perlab":"5","y":0.0177158716096596,"name":"Language"}],"type":"bar"}],"xAxis":{"type":"category","title":{"text":"target"},"labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.target}<\/b><br>% of Total Budget Spent: {point.y:.1f}%<br>Spend a total of €{point.spend_perlab} on this method.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="grid grid-pad">
+<div class="col-1-2 mobile-col-1-1">
+<div id="htmlwidget-5ebc42232aad44854cbd" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5ebc42232aad44854cbd">{"x":{"hc_opts":{"chart":{"reflow":true,"width":600,"height":600},"title":{"text":null},"yAxis":{"title":{"text":"\nBudget spent on targeting method (Count)"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"spend_per":12652.2640415339,"target":"GEOGRAPHY: Entire Country","total":12739,"perc":99.3191305560397,"party":"DCG","n":1,"y":99.3191305560397,"name":"GEOGRAPHY: Entire Country"},{"spend_per":154,"target":"Detailed","total":12739,"perc":1.20888609780988,"party":"DCG","n":1,"y":1.20888609780988,"name":"Detailed"},{"spend_per":86.7359584661079,"target":"GEOGRAPHY: City","total":12739,"perc":0.680869443960341,"party":"DCG","n":1,"y":0.680869443960341,"name":"GEOGRAPHY: City"}],"type":"bar"}],"xAxis":{"type":"category","title":{"text":"target"},"labels":{"style":{"fontSize":"10px"}}},"tooltip":{"formatter":"function() {\n                return '<b>' + this.point.y + '<\/b><br>Count: ' + this.point.x;\n              }"},"legend":{"enabled":false}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":["hc_opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+<div class="col-1-2 mobile-col-1-1">
+<div id="htmlwidget-b22dfe1480a9739b9f34" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b22dfe1480a9739b9f34">{"x":{"hc_opts":{"chart":{"reflow":true,"width":600,"height":600},"title":{"text":null},"yAxis":{"title":{"text":"\nBudget spent on targeting method (Count)"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"spend_per":0.75121705556488,"target":"Detailed","total":1,"perc":75.121705556488,"party":"Demos","n":1,"y":75.121705556488,"name":"Detailed"},{"spend_per":0.42219237871412,"target":"GEOGRAPHY: Entire Country","total":1,"perc":42.219237871412,"party":"Demos","n":1,"y":42.219237871412,"name":"GEOGRAPHY: Entire Country"},{"spend_per":0.37787476917912,"target":"GEOGRAPHY: City","total":1,"perc":37.787476917912,"party":"Demos","n":1,"y":37.787476917912,"name":"GEOGRAPHY: City"}],"type":"bar"}],"xAxis":{"type":"category","title":{"text":"target"},"labels":{"style":{"fontSize":"10px"}}},"tooltip":{"formatter":"function() {\n                return '<b>' + this.point.y + '<\/b><br>Count: ' + this.point.x;\n              }"},"legend":{"enabled":false}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":["hc_opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+<div class="col-1-2 mobile-col-1-1">
+<div id="htmlwidget-73c36ffd62cddc4d0b19" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-73c36ffd62cddc4d0b19">{"x":{"hc_opts":{"chart":{"reflow":true,"width":600,"height":600},"title":{"text":null},"yAxis":{"title":{"text":"\nBudget spent on targeting method (Count)"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"spend_per":1257.06410341211,"target":"GEOGRAPHY: Entire Country","total":1345,"perc":93.4620151235768,"party":"DF","n":1,"y":93.4620151235768,"name":"GEOGRAPHY: Entire Country"},{"spend_per":445.855909060843,"target":"Detailed","total":1345,"perc":33.149138220137,"party":"DF","n":1,"y":33.149138220137,"name":"Detailed"},{"spend_per":72.0902399153348,"target":"GEOGRAPHY: City","total":1345,"perc":5.3598691386866,"party":"DF","n":1,"y":5.3598691386866,"name":"GEOGRAPHY: City"},{"spend_per":9.98726247058931,"target":"GEOGRAPHY: Regions","total":1345,"perc":0.742547395582848,"party":"DF","n":1,"y":0.742547395582848,"name":"GEOGRAPHY: Regions"}],"type":"bar"}],"xAxis":{"type":"category","title":{"text":"target"},"labels":{"style":{"fontSize":"10px"}}},"tooltip":{"formatter":"function() {\n                return '<b>' + this.point.y + '<\/b><br>Count: ' + this.point.x;\n              }"},"legend":{"enabled":false}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":["hc_opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+<div class="col-1-2 mobile-col-1-1">
+<div id="htmlwidget-77e73c9e1f86c4196e67" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-77e73c9e1f86c4196e67">{"x":{"hc_opts":{"chart":{"reflow":true,"width":600,"height":600},"title":{"text":null},"yAxis":{"title":{"text":"\nBudget spent on targeting method (Count)"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"spend_per":908,"target":"GEOGRAPHY: Entire Country","total":908,"perc":100,"party":"DPS","n":1,"y":100,"name":"GEOGRAPHY: Entire Country"},{"spend_per":249.96696471832,"target":"Detailed","total":908,"perc":27.529401400696,"party":"DPS","n":1,"y":27.529401400696,"name":"Detailed"}],"type":"bar"}],"xAxis":{"type":"category","title":{"text":"target"},"labels":{"style":{"fontSize":"10px"}}},"tooltip":{"formatter":"function() {\n                return '<b>' + this.point.y + '<\/b><br>Count: ' + this.point.x;\n              }"},"legend":{"enabled":false}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":["hc_opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+<div class="col-1-2 mobile-col-1-1">
+<div id="htmlwidget-b7c8987c141c8a37d643" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b7c8987c141c8a37d643">{"x":{"hc_opts":{"chart":{"reflow":true,"width":600,"height":600},"title":{"text":null},"yAxis":{"title":{"text":"\nBudget spent on targeting method (Count)"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"spend_per":1504.24487223892,"target":"GEOGRAPHY: Entire Country","total":1629,"perc":92.3416127832361,"party":"Drugo","n":1,"y":92.3416127832361,"name":"GEOGRAPHY: Entire Country"},{"spend_per":199.911508775725,"target":"Detailed","total":1629,"perc":12.2720385988781,"party":"Drugo","n":1,"y":12.2720385988781,"name":"Detailed"},{"spend_per":119.174988936114,"target":"GEOGRAPHY: City","total":1629,"perc":7.31583725820223,"party":"Drugo","n":1,"y":7.31583725820223,"name":"GEOGRAPHY: City"},{"spend_per":117.275707538101,"target":"Custom Audiences","total":1629,"perc":7.19924539828738,"party":"Drugo","n":1,"y":7.19924539828738,"name":"Custom Audiences"},{"spend_per":117.275707538101,"target":"Lookalike Audiences","total":1629,"perc":7.19924539828738,"party":"Drugo","n":1,"y":7.19924539828738,"name":"Lookalike Audiences"},{"spend_per":5.46924388333413,"target":"GEOGRAPHY: Regions","total":1629,"perc":0.335742411499946,"party":"Drugo","n":1,"y":0.335742411499946,"name":"GEOGRAPHY: Regions"},{"spend_per":5.46924388333413,"target":"Language","total":1629,"perc":0.335742411499946,"party":"Drugo","n":1,"y":0.335742411499946,"name":"Language"}],"type":"bar"}],"xAxis":{"type":"category","title":{"text":"target"},"labels":{"style":{"fontSize":"10px"}}},"tooltip":{"formatter":"function() {\n                return '<b>' + this.point.y + '<\/b><br>Count: ' + this.point.x;\n              }"},"legend":{"enabled":false}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":["hc_opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+<div class="col-1-2 mobile-col-1-1">
+<div id="htmlwidget-407efe11c7f362caa929" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-407efe11c7f362caa929">{"x":{"hc_opts":{"chart":{"reflow":true,"width":600,"height":600},"title":{"text":null},"yAxis":{"title":{"text":"\nBudget spent on targeting method (Count)"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"spend_per":4356,"target":"GEOGRAPHY: Entire Country","total":4356,"perc":100,"party":"ES!","n":1,"y":100,"name":"GEOGRAPHY: Entire Country"}],"type":"bar"}],"xAxis":{"type":"category","title":{"text":"target"},"labels":{"style":{"fontSize":"10px"}}},"tooltip":{"formatter":"function() {\n                return '<b>' + this.point.y + '<\/b><br>Count: ' + this.point.x;\n              }"},"legend":{"enabled":false}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":["hc_opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+<div class="col-1-2 mobile-col-1-1">
+<div id="htmlwidget-746eefcbe99ddce62e95" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-746eefcbe99ddce62e95">{"x":{"hc_opts":{"chart":{"reflow":true,"width":600,"height":600},"title":{"text":null},"yAxis":{"title":{"text":"\nBudget spent on targeting method (Count)"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"spend_per":350,"target":"GEOGRAPHY: Entire Country","total":350,"perc":100,"party":"HGI","n":1,"y":100,"name":"GEOGRAPHY: Entire Country"},{"spend_per":94.146550492785,"target":"Lookalike Audiences","total":350,"perc":26.89901442651,"party":"HGI","n":1,"y":26.89901442651,"name":"Lookalike Audiences"},{"spend_per":54.282245393516,"target":"Custom Audiences","total":350,"perc":15.509212969576,"party":"HGI","n":1,"y":15.509212969576,"name":"Custom Audiences"},{"spend_per":29.9957148978718,"target":"Detailed","total":350,"perc":8.5702042565348,"party":"HGI","n":1,"y":8.5702042565348,"name":"Detailed"}],"type":"bar"}],"xAxis":{"type":"category","title":{"text":"target"},"labels":{"style":{"fontSize":"10px"}}},"tooltip":{"formatter":"function() {\n                return '<b>' + this.point.y + '<\/b><br>Count: ' + this.point.x;\n              }"},"legend":{"enabled":false}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":["hc_opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+<div class="col-1-2 mobile-col-1-1">
+<div id="htmlwidget-553d633a246a2cdc7566" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-553d633a246a2cdc7566">{"x":{"hc_opts":{"chart":{"reflow":true,"width":600,"height":600},"title":{"text":null},"yAxis":{"title":{"text":"\nBudget spent on targeting method (Count)"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"spend_per":0.82608695652174,"target":"GEOGRAPHY: Entire Country","total":1,"perc":82.608695652174,"party":"LP","n":1,"y":82.608695652174,"name":"GEOGRAPHY: Entire Country"},{"spend_per":0.17391304347826,"target":"GEOGRAPHY: City","total":1,"perc":17.391304347826,"party":"LP","n":1,"y":17.391304347826,"name":"GEOGRAPHY: City"}],"type":"bar"}],"xAxis":{"type":"category","title":{"text":"target"},"labels":{"style":{"fontSize":"10px"}}},"tooltip":{"formatter":"function() {\n                return '<b>' + this.point.y + '<\/b><br>Count: ' + this.point.x;\n              }"},"legend":{"enabled":false}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":["hc_opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+<div class="col-1-2 mobile-col-1-1">
+<div id="htmlwidget-2113fb64e03d222def72" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2113fb64e03d222def72">{"x":{"hc_opts":{"chart":{"reflow":true,"width":600,"height":600},"title":{"text":null},"yAxis":{"title":{"text":"\nBudget spent on targeting method (Count)"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"spend_per":537,"target":"Detailed","total":537,"perc":100,"party":"Prava Crna Gora","n":1,"y":100,"name":"Detailed"},{"spend_per":536.28381795196,"target":"GEOGRAPHY: Entire Country","total":537,"perc":99.866632765728,"party":"Prava Crna Gora","n":1,"y":99.866632765728,"name":"GEOGRAPHY: Entire Country"},{"spend_per":0.71618204804046,"target":"GEOGRAPHY: Regions","total":537,"perc":0.133367234271966,"party":"Prava Crna Gora","n":1,"y":0.133367234271966,"name":"GEOGRAPHY: Regions"}],"type":"bar"}],"xAxis":{"type":"category","title":{"text":"target"},"labels":{"style":{"fontSize":"10px"}}},"tooltip":{"formatter":"function() {\n                return '<b>' + this.point.y + '<\/b><br>Count: ' + this.point.x;\n              }"},"legend":{"enabled":false}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":["hc_opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+<div class="col-1-2 mobile-col-1-1">
+<div id="htmlwidget-a40386828e7aa35fee39" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a40386828e7aa35fee39">{"x":{"hc_opts":{"chart":{"reflow":true,"width":600,"height":600},"title":{"text":null},"yAxis":{"title":{"text":"\nBudget spent on targeting method (Count)"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"spend_per":656.54476806904,"target":"GEOGRAPHY: Entire Country","total":686,"perc":95.7062344123965,"party":"SD","n":1,"y":95.7062344123965,"name":"GEOGRAPHY: Entire Country"},{"spend_per":602.440707490732,"target":"Detailed","total":686,"perc":87.819345115267,"party":"SD","n":1,"y":87.819345115267,"name":"Detailed"},{"spend_per":28.7954808936154,"target":"GEOGRAPHY: City","total":686,"perc":4.19759196699933,"party":"SD","n":1,"y":4.19759196699933,"name":"GEOGRAPHY: City"},{"spend_per":0.6597510373444,"target":"GEOGRAPHY: Regions","total":686,"perc":0.0961736206041399,"party":"SD","n":1,"y":0.0961736206041399,"name":"GEOGRAPHY: Regions"},{"spend_per":0.5,"target":"Custom Audiences","total":686,"perc":0.0728862973760933,"party":"SD","n":1,"y":0.0728862973760933,"name":"Custom Audiences"},{"spend_per":0.5,"target":"Lookalike Audiences","total":686,"perc":0.0728862973760933,"party":"SD","n":1,"y":0.0728862973760933,"name":"Lookalike Audiences"}],"type":"bar"}],"xAxis":{"type":"category","title":{"text":"target"},"labels":{"style":{"fontSize":"10px"}}},"tooltip":{"formatter":"function() {\n                return '<b>' + this.point.y + '<\/b><br>Count: ' + this.point.x;\n              }"},"legend":{"enabled":false}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":["hc_opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+<div class="col-1-2 mobile-col-1-1">
+<div id="htmlwidget-63e1b6f00a7ffb2ee970" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-63e1b6f00a7ffb2ee970">{"x":{"hc_opts":{"chart":{"reflow":true,"width":600,"height":600},"title":{"text":null},"yAxis":{"title":{"text":"\nBudget spent on targeting method (Count)"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"spend_per":1350.42286379512,"target":"GEOGRAPHY: Entire Country","total":1467,"perc":92.0533649485424,"party":"SDP","n":1,"y":92.0533649485424,"name":"GEOGRAPHY: Entire Country"},{"spend_per":485.610193956879,"target":"Detailed","total":1467,"perc":33.1022627100803,"party":"SDP","n":1,"y":33.1022627100803,"name":"Detailed"},{"spend_per":60.4640745052383,"target":"GEOGRAPHY: City","total":1467,"perc":4.12161380403805,"party":"SDP","n":1,"y":4.12161380403805,"name":"GEOGRAPHY: City"},{"spend_per":35.4582537834695,"target":"GEOGRAPHY: Regions","total":1467,"perc":2.41705888094543,"party":"SDP","n":1,"y":2.41705888094543,"name":"GEOGRAPHY: Regions"},{"spend_per":14.9934901047726,"target":"Lookalike Audiences","total":1467,"perc":1.02205113188634,"party":"SDP","n":1,"y":1.02205113188634,"name":"Lookalike Audiences"}],"type":"bar"}],"xAxis":{"type":"category","title":{"text":"target"},"labels":{"style":{"fontSize":"10px"}}},"tooltip":{"formatter":"function() {\n                return '<b>' + this.point.y + '<\/b><br>Count: ' + this.point.x;\n              }"},"legend":{"enabled":false}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":["hc_opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+<div class="col-1-2 mobile-col-1-1">
+<div id="htmlwidget-79f3229dbd19d6d9a401" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-79f3229dbd19d6d9a401">{"x":{"hc_opts":{"chart":{"reflow":true,"width":600,"height":600},"title":{"text":null},"yAxis":{"title":{"text":"\nBudget spent on targeting method (Count)"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"spend_per":157.748446683459,"target":"GEOGRAPHY: City","total":179,"perc":88.127623845508,"party":"SNP","n":1,"y":88.127623845508,"name":"GEOGRAPHY: City"},{"spend_per":70.4377273999445,"target":"GEOGRAPHY: Regions","total":179,"perc":39.350685698293,"party":"SNP","n":1,"y":39.350685698293,"name":"GEOGRAPHY: Regions"},{"spend_per":22.0431010355444,"target":"Gender","total":179,"perc":12.314581584103,"party":"SNP","n":1,"y":12.314581584103,"name":"Gender"}],"type":"bar"}],"xAxis":{"type":"category","title":{"text":"target"},"labels":{"style":{"fontSize":"10px"}}},"tooltip":{"formatter":"function() {\n                return '<b>' + this.point.y + '<\/b><br>Count: ' + this.point.x;\n              }"},"legend":{"enabled":false}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":["hc_opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+<div class="col-1-2 mobile-col-1-1">
+<div id="htmlwidget-0c0808ff4a9c0cd071b7" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0c0808ff4a9c0cd071b7">{"x":{"hc_opts":{"chart":{"reflow":true,"width":600,"height":600},"title":{"text":null},"yAxis":{"title":{"text":"\nBudget spent on targeting method (Count)"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"spend_per":4782.97156849234,"target":"GEOGRAPHY: Entire Country","total":6674,"perc":71.6657412120518,"party":"URA","n":1,"y":71.6657412120518,"name":"GEOGRAPHY: Entire Country"},{"spend_per":3610.48365883513,"target":"Custom Audiences","total":6674,"perc":54.0977473604305,"party":"URA","n":1,"y":54.0977473604305,"name":"Custom Audiences"},{"spend_per":3236.01334948224,"target":"Lookalike Audiences","total":6674,"perc":48.4868646910734,"party":"URA","n":1,"y":48.4868646910734,"name":"Lookalike Audiences"},{"spend_per":1358.4491775258,"target":"Detailed","total":6674,"perc":20.3543478802187,"party":"URA","n":1,"y":20.3543478802187,"name":"Detailed"},{"spend_per":616.143628291634,"target":"GEOGRAPHY: Regions","total":6674,"perc":9.23199922522676,"party":"URA","n":1,"y":9.23199922522676,"name":"GEOGRAPHY: Regions"},{"spend_per":315.183189372382,"target":"GEOGRAPHY: City","total":6674,"perc":4.72255303225025,"party":"URA","n":1,"y":4.72255303225025,"name":"GEOGRAPHY: City"},{"spend_per":59.2292532558947,"target":"Gender","total":6674,"perc":0.887462589989433,"party":"URA","n":1,"y":0.887462589989433,"name":"Gender"}],"type":"bar"}],"xAxis":{"type":"category","title":{"text":"target"},"labels":{"style":{"fontSize":"10px"}}},"tooltip":{"formatter":"function() {\n                return '<b>' + this.point.y + '<\/b><br>Count: ' + this.point.x;\n              }"},"legend":{"enabled":false}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":["hc_opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Overall</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">By Party</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targeting_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="2400"></p>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="running-code" class="level2">
-<h2 class="anchored" data-anchor-id="running-code">Running Code</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
+<section id="top-targeted-detailed-audiences" class="level2">
+<h2 class="anchored" data-anchor-id="top-targeted-detailed-audiences">Top Targeted (Detailed) Audiences</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">May 8th - Jun 6th 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">May 31st - Jun 6th 2023 (Last 7 days)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<div class="cell-output-display">
+<p><img src="targeting_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="4800"></p>
 </div>
 </div>
-<p>You can add options to executable code like this</p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
+<div class="cell-output-display">
+<p><img src="targeting_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="4800"></p>
 </div>
 </div>
-<p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="top-contested-audiences" class="level2">
+<h2 class="anchored" data-anchor-id="top-contested-audiences">Top Contested Audiences</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">May 8th - Jun 6th 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">May 31st - Jun 6th 2023 (Last 7 days)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targeting_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="1056"></p>
+</div>
+</div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targeting_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="geographical-targeting" class="level2">
+<h2 class="anchored" data-anchor-id="geographical-targeting">Geographical Targeting</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">May 8th - Jun 6th 2023 (Last 30 days)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tabset tabset-fade tabset-pills tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<section id="regions" class="level4">
+<h4 class="anchored" data-anchor-id="regions">Regions</h4>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targeting_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="960"></p>
+</div>
+</div>
+</section>
+<section id="cities" class="level4">
+<h4 class="anchored" data-anchor-id="cities">Cities</h4>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targeting_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="960"></p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="geographical-exclusion" class="level2">
+<h2 class="anchored" data-anchor-id="geographical-exclusion">Geographical Exclusion</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">May 8th - Jun 6th 2023 (Last 30 days)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<!-- #### Regions -->
+<div class="cell">
+
+</div>
+<section id="cities-1" class="level4">
+<h4 class="anchored" data-anchor-id="cities-1">Cities</h4>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targeting_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="960"></p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="age-targeting" class="level2">
+<h2 class="anchored" data-anchor-id="age-targeting">Age Targeting</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">May 8th - Jun 6th 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">May 31st - Jun 6th 2023 (Last 7 days)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targeting_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="3000"></p>
+</div>
+</div>
+</div>
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targeting_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="3000"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="gender-targeting" class="level2">
+<h2 class="anchored" data-anchor-id="gender-targeting">Gender Targeting</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">May 8th - Jun 6th 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">May 31st - Jun 6th 2023 (Last 7 days)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targeting_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="2400"></p>
+</div>
+</div>
+</div>
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targeting_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="2400"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="education-targeting" class="level2">
+<h2 class="anchored" data-anchor-id="education-targeting">Education Targeting</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true">May 8th - Jun 6th 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false">May 31st - Jun 6th 2023 (Last 7 days)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
+<div class="cell">
+
+</div>
+</div>
+<div id="tabset-10-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-2-tab">
+<div class="cell">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="job-targeting" class="level2">
+<h2 class="anchored" data-anchor-id="job-targeting">Job Targeting</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" role="tab" aria-controls="tabset-11-1" aria-selected="true">May 8th - Jun 6th 2023 (Last 30 days)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-11-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targeting_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="3300"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ### May 31st - Jun 6th 2023 (Last 7 days) -->
+<!-- ```{r, fig.width=14, fig.height=9, dpi=300} -->
+<!-- election_dat7 %>%  -->
+<!--     group_split(party) %>%  -->
+<!--     map_dfr(calc_jobs_perc) %>%  -->
+<!--     filter(perc >= 0.015) %>%  -->
+<!--     filter(str_detect(value, relationshipstuff, negate = T)) %>%  -->
+<!--      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra", -->
+<!--      #                              "Terzo Polo", -->
+<!--      #                              "Coalizione di centro-destra"))) %>%  -->
+<!--     mutate(value = fct_reorder(value, perc)) %>%  -->
+<!--     ggplot(aes(value, perc, fill = party)) + -->
+<!--     geom_col(alpha = 0.8) + -->
+<!--     facet_wrap(~party, scales = "free") + -->
+<!--     coord_flip() + -->
+<!--     ggthemes::theme_hc() + -->
+<!--     # scale_fill_manual(values = c("#ef3e3e", "#0039aa", "#0a6be1")) + -->
+<!--     theme(legend.position = "none", -->
+<!--           panel.spacing=unit(1,"lines")) + -->
+<!--     scale_y_continuous(labels = scales::percent) + -->
+<!--     # scale_x_discrete(breaks = c("18", "24", -->
+<!--     #                             "34", "44", -->
+<!--     #                             "54", "65+")) + -->
+<!--     labs(y = "% Budget Spend on Jobs") + -->
+<!--     labs(x = "Job (Sectors)\n")  + -->
+<!--   geom_text(size = 3.5, color = "black", vjust="inward",hjust="inward", -->
+<!--              aes(y = perc, label = paste0(round(perc*100, 1), "%")))  + -->
+<!--     scale_x_discrete(label = function(x) stringr::str_trunc(x, 22)) + -->
+<!--     scale_fill_parties() -->
+<!-- ``` -->
 
 
 </section>

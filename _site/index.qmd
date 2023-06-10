@@ -18,7 +18,7 @@ shiny::HTML('
 <style>
 #overlay {
   position: fixed;
-  display: block;
+  display: none;
   width: 100%;
   height: 100%;
   top: 0;
@@ -49,7 +49,7 @@ shiny::HTML('
 
 <div id="overlay" onclick="off()">
   <div id="text">
-    <img src="wtm_logo_2020.png" alt="Logo" style="width:100px;height:100px;">
+    <img src="wtm_logo_2020.png" alt="Logo" style="width:200px;height:200px;">
     <h2>Welcome to the 2023 Montenegrin Election Dashboard</h2>
     <p>This dashboard aggregates data from the <a href="https://www.facebook.com/ads/library/" target="_blank">Meta Ad Library</a> to show how citizens are targeted during the Montenegrin 2023 Parliamantary election.</p>
     <p>If you want to know more about Who Targets Me and our work on ad transparency, visit us on <a href="https://www.whotargets.me/" target="_blank">whotargets.me</a>!</p>
@@ -57,6 +57,16 @@ shiny::HTML('
 </div>
 
 <script>
+window.onload = function() {
+  var popupLastShown = localStorage.getItem("popupLastShown");
+  var now = new Date().getTime();
+
+  if (!popupLastShown || now - popupLastShown > 60*60*1000) {  // 60*60*1000 milliseconds = 1 hour
+    document.getElementById("overlay").style.display = "block";
+    localStorage.setItem("popupLastShown", now);
+  }
+}
+
 function off() {
   document.getElementById("overlay").style.display = "none";
 }
@@ -65,11 +75,12 @@ function off() {
 
 
 
+
 ```
 
 
 ```{r setup, include=FALSE}
-election_title <- "2023 Montenegrin legislative election"
+election_title <- "2023 Montenegrin parliamentary election"
 the_country <- "Montenegro"
 
 
@@ -176,9 +187,6 @@ if(the_currency == "EUR"){
 ```
 
 
-## Topline Statistics  
-
-::: {.panel-tabset}
 
 
 ```{r}
@@ -240,7 +248,9 @@ add_ribbons2 <- function(x, adv, col) {
 ```
 
 
-### Daily Spend
+This section shows *daily* and *total spending* of political parties in the run-up to the `r election_title` for the latest available data.
+
+## Daily Spend
 
 
 
@@ -383,6 +393,11 @@ hc_data %>%
 
 ```
 
+
+## Total Spend
+
+
+::: {.panel-tabset}
 
 
 ### `r last30days_string` (Last 30 days)

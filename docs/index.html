@@ -125,6 +125,9 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link active" href="./index.html" aria-current="page">Spending</a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./targeting.html">Targeting</a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./impressions.html">Impressions</a>
   </li>  
   <li class="nav-item">
@@ -182,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
 <style>
 #overlay {
   position: fixed;
-  display: block;
+  display: none;
   width: 100%;
   height: 100%;
   top: 0;
@@ -213,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="overlay" onclick="off()">
   <div id="text">
-    <img src="wtm_logo_2020.png" alt="Logo" style="width:100px;height:100px;">
+    <img src="wtm_logo_2020.png" alt="Logo" style="width:200px;height:200px;">
     <h2 class="anchored">Welcome to the 2023 Montenegrin Election Dashboard</h2>
     <p>This dashboard aggregates data from the <a href="https://www.facebook.com/ads/library/" target="_blank">Meta Ad Library</a> to show how citizens are targeted during the Montenegrin 2023 Parliamantary election.</p>
     <p>If you want to know more about Who Targets Me and our work on ad transparency, visit us on <a href="https://www.whotargets.me/" target="_blank">whotargets.me</a>!</p>
@@ -221,6 +224,16 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 <script>
+window.onload = function() {
+  var popupLastShown = localStorage.getItem("popupLastShown");
+  var now = new Date().getTime();
+
+  if (!popupLastShown || now - popupLastShown > 60*60*1000) {  // 60*60*1000 milliseconds = 1 hour
+    document.getElementById("overlay").style.display = "block";
+    localStorage.setItem("popupLastShown", now);
+  }
+}
+
 function off() {
   document.getElementById("overlay").style.display = "none";
 }
@@ -233,32 +246,40 @@ function off() {
 <div class="cell">
 
 </div>
-<section id="topline-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="topline-statistics">Topline Statistics</h2>
-<div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Daily Spend</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">May 8th - Jun 6th 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">May 31st - Jun 6th 2023 (Last 7 days)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
+<p>This section shows <em>daily</em> and <em>total spending</em> of political parties in the run-up to the 2023 Montenegrin parliamentary election for the latest available data.</p>
+<section id="daily-spend" class="level2">
+<h2 class="anchored" data-anchor-id="daily-spend">Daily Spend</h2>
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="htmlwidget-01abe2e1e5017f0dca91" style="width:100%;height:480px;" class="highchart html-widget"></div>
-<script type="application/json" data-for="htmlwidget-01abe2e1e5017f0dca91">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"Demos","data":[{"date_produced":"2023-06-02","party":"Demos","spend":1,"total_spend":1,"colors":"#89cff0","Daily Spend":1,"Date":"2023-06-02","x":1685664000000,"y":1,"fill":"#89cff0"},{"date_produced":"2023-06-03","party":"Demos","spend":1,"total_spend":1,"colors":"#89cff0","Daily Spend":1,"Date":"2023-06-03","x":1685750400000,"y":1,"fill":"#89cff0"},{"date_produced":"2023-06-04","party":"Demos","spend":1,"total_spend":1,"colors":"#89cff0","Daily Spend":1,"Date":"2023-06-04","x":1685836800000,"y":1,"fill":"#89cff0"},{"date_produced":"2023-06-05","party":"Demos","spend":1,"total_spend":1,"colors":"#89cff0","Daily Spend":1,"Date":"2023-06-05","x":1685923200000,"y":1,"fill":"#89cff0"},{"date_produced":"2023-06-06","party":"Demos","spend":1,"total_spend":1,"colors":"#89cff0","Daily Spend":1,"Date":"2023-06-06","x":1686009600000,"y":1,"fill":"#89cff0"}],"type":"area"},{"name":"HGI","data":[{"date_produced":"2023-05-31","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-05-31","x":1685491200000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-01","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-02","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-02","x":1685664000000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-03","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-03","x":1685750400000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-04","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-04","x":1685836800000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-05","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-05","x":1685923200000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-06","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-06","x":1686009600000,"y":1,"fill":"#9A6324"}],"type":"area"},{"name":"LP","data":[{"date_produced":"2023-05-31","party":"LP","spend":1,"total_spend":1,"colors":"#fffac8","Daily Spend":1,"Date":"2023-05-31","x":1685491200000,"y":1,"fill":"#fffac8"},{"date_produced":"2023-06-01","party":"LP","spend":1,"total_spend":1,"colors":"#fffac8","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#fffac8"},{"date_produced":"2023-06-04","party":"LP","spend":1,"total_spend":1,"colors":"#fffac8","Daily Spend":1,"Date":"2023-06-04","x":1685836800000,"y":1,"fill":"#fffac8"},{"date_produced":"2023-06-05","party":"LP","spend":1,"total_spend":1,"colors":"#fffac8","Daily Spend":1,"Date":"2023-06-05","x":1685923200000,"y":1,"fill":"#fffac8"}],"type":"area"},{"name":"Prava Crna Gora","data":[{"date_produced":"2023-05-31","party":"Prava Crna Gora","spend":1,"total_spend":2,"colors":"#800000","Daily Spend":1,"Date":"2023-05-31","x":1685491200000,"y":1,"fill":"#800000"},{"date_produced":"2023-06-01","party":"Prava Crna Gora","spend":1,"total_spend":2,"colors":"#800000","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#800000"},{"date_produced":"2023-06-02","party":"Prava Crna Gora","spend":2,"total_spend":2,"colors":"#800000","Daily Spend":2,"Date":"2023-06-02","x":1685664000000,"y":2,"fill":"#800000"},{"date_produced":"2023-06-03","party":"Prava Crna Gora","spend":2,"total_spend":2,"colors":"#800000","Daily Spend":2,"Date":"2023-06-03","x":1685750400000,"y":2,"fill":"#800000"},{"date_produced":"2023-06-04","party":"Prava Crna Gora","spend":2,"total_spend":2,"colors":"#800000","Daily Spend":2,"Date":"2023-06-04","x":1685836800000,"y":2,"fill":"#800000"},{"date_produced":"2023-06-05","party":"Prava Crna Gora","spend":2,"total_spend":2,"colors":"#800000","Daily Spend":2,"Date":"2023-06-05","x":1685923200000,"y":2,"fill":"#800000"},{"date_produced":"2023-06-06","party":"Prava Crna Gora","spend":2,"total_spend":2,"colors":"#800000","Daily Spend":2,"Date":"2023-06-06","x":1686009600000,"y":2,"fill":"#800000"}],"type":"area"},{"name":"SD","data":[{"date_produced":"2023-05-31","party":"SD","spend":1,"total_spend":3,"colors":"#f04949","Daily Spend":1,"Date":"2023-05-31","x":1685491200000,"y":1,"fill":"#f04949"},{"date_produced":"2023-06-01","party":"SD","spend":1,"total_spend":3,"colors":"#f04949","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#f04949"},{"date_produced":"2023-06-02","party":"SD","spend":1,"total_spend":3,"colors":"#f04949","Daily Spend":1,"Date":"2023-06-02","x":1685664000000,"y":1,"fill":"#f04949"},{"date_produced":"2023-06-03","party":"SD","spend":1,"total_spend":3,"colors":"#f04949","Daily Spend":1,"Date":"2023-06-03","x":1685750400000,"y":1,"fill":"#f04949"},{"date_produced":"2023-06-04","party":"SD","spend":2,"total_spend":3,"colors":"#f04949","Daily Spend":2,"Date":"2023-06-04","x":1685836800000,"y":2,"fill":"#f04949"},{"date_produced":"2023-06-05","party":"SD","spend":3,"total_spend":3,"colors":"#f04949","Daily Spend":3,"Date":"2023-06-05","x":1685923200000,"y":3,"fill":"#f04949"},{"date_produced":"2023-06-06","party":"SD","spend":3,"total_spend":3,"colors":"#f04949","Daily Spend":3,"Date":"2023-06-06","x":1686009600000,"y":3,"fill":"#f04949"}],"type":"area"},{"name":"SDP","data":[{"date_produced":"2023-05-31","party":"SDP","spend":1,"total_spend":3,"colors":"#ff1a1a","Daily Spend":1,"Date":"2023-05-31","x":1685491200000,"y":1,"fill":"#ff1a1a"},{"date_produced":"2023-06-01","party":"SDP","spend":1,"total_spend":3,"colors":"#ff1a1a","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#ff1a1a"},{"date_produced":"2023-06-02","party":"SDP","spend":1,"total_spend":3,"colors":"#ff1a1a","Daily Spend":1,"Date":"2023-06-02","x":1685664000000,"y":1,"fill":"#ff1a1a"},{"date_produced":"2023-06-03","party":"SDP","spend":1,"total_spend":3,"colors":"#ff1a1a","Daily Spend":1,"Date":"2023-06-03","x":1685750400000,"y":1,"fill":"#ff1a1a"},{"date_produced":"2023-06-04","party":"SDP","spend":2,"total_spend":3,"colors":"#ff1a1a","Daily Spend":2,"Date":"2023-06-04","x":1685836800000,"y":2,"fill":"#ff1a1a"},{"date_produced":"2023-06-05","party":"SDP","spend":2,"total_spend":3,"colors":"#ff1a1a","Daily Spend":2,"Date":"2023-06-05","x":1685923200000,"y":2,"fill":"#ff1a1a"},{"date_produced":"2023-06-06","party":"SDP","spend":3,"total_spend":3,"colors":"#ff1a1a","Daily Spend":3,"Date":"2023-06-06","x":1686009600000,"y":3,"fill":"#ff1a1a"}],"type":"area"},{"name":"SNP","data":[{"date_produced":"2023-06-04","party":"SNP","spend":1,"total_spend":115,"colors":"#6495ed","Daily Spend":1,"Date":"2023-06-04","x":1685836800000,"y":1,"fill":"#6495ed"},{"date_produced":"2023-06-05","party":"SNP","spend":1,"total_spend":115,"colors":"#6495ed","Daily Spend":1,"Date":"2023-06-05","x":1685923200000,"y":1,"fill":"#6495ed"},{"date_produced":"2023-06-06","party":"SNP","spend":115,"total_spend":115,"colors":"#6495ed","Daily Spend":115,"Date":"2023-06-06","x":1686009600000,"y":115,"fill":"#6495ed"}],"type":"area"},{"name":"DF","data":[{"date_produced":"2023-05-31","party":"DF","spend":2,"total_spend":126,"colors":"#00008b","Daily Spend":2,"Date":"2023-05-31","x":1685491200000,"y":2,"fill":"#00008b"},{"date_produced":"2023-06-01","party":"DF","spend":2,"total_spend":126,"colors":"#00008b","Daily Spend":2,"Date":"2023-06-01","x":1685577600000,"y":2,"fill":"#00008b"},{"date_produced":"2023-06-02","party":"DF","spend":2,"total_spend":126,"colors":"#00008b","Daily Spend":2,"Date":"2023-06-02","x":1685664000000,"y":2,"fill":"#00008b"},{"date_produced":"2023-06-03","party":"DF","spend":2,"total_spend":126,"colors":"#00008b","Daily Spend":2,"Date":"2023-06-03","x":1685750400000,"y":2,"fill":"#00008b"},{"date_produced":"2023-06-04","party":"DF","spend":2,"total_spend":126,"colors":"#00008b","Daily Spend":2,"Date":"2023-06-04","x":1685836800000,"y":2,"fill":"#00008b"},{"date_produced":"2023-06-05","party":"DF","spend":126,"total_spend":126,"colors":"#00008b","Daily Spend":126,"Date":"2023-06-05","x":1685923200000,"y":126,"fill":"#00008b"},{"date_produced":"2023-06-06","party":"DF","spend":126,"total_spend":126,"colors":"#00008b","Daily Spend":126,"Date":"2023-06-06","x":1686009600000,"y":126,"fill":"#00008b"}],"type":"area"},{"name":"Drugo","data":[{"date_produced":"2023-05-31","party":"Drugo","spend":118,"total_spend":180,"colors":"#e6194B","Daily Spend":118,"Date":"2023-05-31","x":1685491200000,"y":118,"fill":"#e6194B"},{"date_produced":"2023-06-01","party":"Drugo","spend":105,"total_spend":180,"colors":"#e6194B","Daily Spend":105,"Date":"2023-06-01","x":1685577600000,"y":105,"fill":"#e6194B"},{"date_produced":"2023-06-02","party":"Drugo","spend":130,"total_spend":180,"colors":"#e6194B","Daily Spend":130,"Date":"2023-06-02","x":1685664000000,"y":130,"fill":"#e6194B"},{"date_produced":"2023-06-03","party":"Drugo","spend":127,"total_spend":180,"colors":"#e6194B","Daily Spend":127,"Date":"2023-06-03","x":1685750400000,"y":127,"fill":"#e6194B"},{"date_produced":"2023-06-04","party":"Drugo","spend":122,"total_spend":180,"colors":"#e6194B","Daily Spend":122,"Date":"2023-06-04","x":1685836800000,"y":122,"fill":"#e6194B"},{"date_produced":"2023-06-05","party":"Drugo","spend":180,"total_spend":180,"colors":"#e6194B","Daily Spend":180,"Date":"2023-06-05","x":1685923200000,"y":180,"fill":"#e6194B"},{"date_produced":"2023-06-06","party":"Drugo","spend":162,"total_spend":180,"colors":"#e6194B","Daily Spend":162,"Date":"2023-06-06","x":1686009600000,"y":162,"fill":"#e6194B"}],"type":"area"},{"name":"DPS","data":[{"date_produced":"2023-06-01","party":"DPS","spend":1,"total_spend":257,"colors":"#524fa1","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#524fa1"},{"date_produced":"2023-06-02","party":"DPS","spend":141,"total_spend":257,"colors":"#524fa1","Daily Spend":141,"Date":"2023-06-02","x":1685664000000,"y":141,"fill":"#524fa1"},{"date_produced":"2023-06-03","party":"DPS","spend":257,"total_spend":257,"colors":"#524fa1","Daily Spend":257,"Date":"2023-06-03","x":1685750400000,"y":257,"fill":"#524fa1"},{"date_produced":"2023-06-04","party":"DPS","spend":235,"total_spend":257,"colors":"#524fa1","Daily Spend":235,"Date":"2023-06-04","x":1685836800000,"y":235,"fill":"#524fa1"},{"date_produced":"2023-06-05","party":"DPS","spend":113,"total_spend":257,"colors":"#524fa1","Daily Spend":113,"Date":"2023-06-05","x":1685923200000,"y":113,"fill":"#524fa1"},{"date_produced":"2023-06-06","party":"DPS","spend":1,"total_spend":257,"colors":"#524fa1","Daily Spend":1,"Date":"2023-06-06","x":1686009600000,"y":1,"fill":"#524fa1"}],"type":"area"},{"name":"URA","data":[{"date_produced":"2023-05-31","party":"URA","spend":289,"total_spend":756,"colors":"#00FF00","Daily Spend":289,"Date":"2023-05-31","x":1685491200000,"y":289,"fill":"#00FF00"},{"date_produced":"2023-06-01","party":"URA","spend":129,"total_spend":756,"colors":"#00FF00","Daily Spend":129,"Date":"2023-06-01","x":1685577600000,"y":129,"fill":"#00FF00"},{"date_produced":"2023-06-02","party":"URA","spend":207,"total_spend":756,"colors":"#00FF00","Daily Spend":207,"Date":"2023-06-02","x":1685664000000,"y":207,"fill":"#00FF00"},{"date_produced":"2023-06-03","party":"URA","spend":247,"total_spend":756,"colors":"#00FF00","Daily Spend":247,"Date":"2023-06-03","x":1685750400000,"y":247,"fill":"#00FF00"},{"date_produced":"2023-06-04","party":"URA","spend":370,"total_spend":756,"colors":"#00FF00","Daily Spend":370,"Date":"2023-06-04","x":1685836800000,"y":370,"fill":"#00FF00"},{"date_produced":"2023-06-05","party":"URA","spend":688,"total_spend":756,"colors":"#00FF00","Daily Spend":688,"Date":"2023-06-05","x":1685923200000,"y":688,"fill":"#00FF00"},{"date_produced":"2023-06-06","party":"URA","spend":756,"total_spend":756,"colors":"#00FF00","Daily Spend":756,"Date":"2023-06-06","x":1686009600000,"y":756,"fill":"#00FF00"}],"type":"area"},{"name":"ES!","data":[{"date_produced":"2023-05-31","party":"ES!","spend":121,"total_spend":898,"colors":"#f1c851","Daily Spend":121,"Date":"2023-05-31","x":1685491200000,"y":121,"fill":"#f1c851"},{"date_produced":"2023-06-01","party":"ES!","spend":217,"total_spend":898,"colors":"#f1c851","Daily Spend":217,"Date":"2023-06-01","x":1685577600000,"y":217,"fill":"#f1c851"},{"date_produced":"2023-06-02","party":"ES!","spend":266,"total_spend":898,"colors":"#f1c851","Daily Spend":266,"Date":"2023-06-02","x":1685664000000,"y":266,"fill":"#f1c851"},{"date_produced":"2023-06-03","party":"ES!","spend":368,"total_spend":898,"colors":"#f1c851","Daily Spend":368,"Date":"2023-06-03","x":1685750400000,"y":368,"fill":"#f1c851"},{"date_produced":"2023-06-04","party":"ES!","spend":539,"total_spend":898,"colors":"#f1c851","Daily Spend":539,"Date":"2023-06-04","x":1685836800000,"y":539,"fill":"#f1c851"},{"date_produced":"2023-06-05","party":"ES!","spend":656,"total_spend":898,"colors":"#f1c851","Daily Spend":656,"Date":"2023-06-05","x":1685923200000,"y":656,"fill":"#f1c851"},{"date_produced":"2023-06-06","party":"ES!","spend":898,"total_spend":898,"colors":"#f1c851","Daily Spend":898,"Date":"2023-06-06","x":1686009600000,"y":898,"fill":"#f1c851"}],"type":"area"},{"name":"DCG","data":[{"date_produced":"2023-05-31","party":"DCG","spend":812,"total_spend":1596,"colors":"#f5911d","Daily Spend":812,"Date":"2023-05-31","x":1685491200000,"y":812,"fill":"#f5911d"},{"date_produced":"2023-06-01","party":"DCG","spend":1101,"total_spend":1596,"colors":"#f5911d","Daily Spend":1101,"Date":"2023-06-01","x":1685577600000,"y":1101,"fill":"#f5911d"},{"date_produced":"2023-06-02","party":"DCG","spend":1596,"total_spend":1596,"colors":"#f5911d","Daily Spend":1596,"Date":"2023-06-02","x":1685664000000,"y":1596,"fill":"#f5911d"},{"date_produced":"2023-06-03","party":"DCG","spend":854,"total_spend":1596,"colors":"#f5911d","Daily Spend":854,"Date":"2023-06-03","x":1685750400000,"y":854,"fill":"#f5911d"},{"date_produced":"2023-06-04","party":"DCG","spend":732,"total_spend":1596,"colors":"#f5911d","Daily Spend":732,"Date":"2023-06-04","x":1685836800000,"y":732,"fill":"#f5911d"},{"date_produced":"2023-06-05","party":"DCG","spend":831,"total_spend":1596,"colors":"#f5911d","Daily Spend":831,"Date":"2023-06-05","x":1685923200000,"y":831,"fill":"#f5911d"},{"date_produced":"2023-06-06","party":"DCG","spend":1173,"total_spend":1596,"colors":"#f5911d","Daily Spend":1173,"Date":"2023-06-06","x":1686009600000,"y":1173,"fill":"#f5911d"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"Date"},"categories":null},"colors":["#89cff0","#9A6324","#fffac8","#800000","#f04949","#ff1a1a","#6495ed","#00008b","#e6194B","#524fa1","#00FF00","#f1c851","#f5911d"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
+<div id="htmlwidget-46b8b5c9182ada7edead" style="width:100%;height:480px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-46b8b5c9182ada7edead">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"Demos","data":[{"date_produced":"2023-06-02","party":"Demos","spend":1,"total_spend":1,"colors":"#89cff0","Daily Spend":1,"Date":"2023-06-02","x":1685664000000,"y":1,"fill":"#89cff0"},{"date_produced":"2023-06-03","party":"Demos","spend":1,"total_spend":1,"colors":"#89cff0","Daily Spend":1,"Date":"2023-06-03","x":1685750400000,"y":1,"fill":"#89cff0"},{"date_produced":"2023-06-04","party":"Demos","spend":1,"total_spend":1,"colors":"#89cff0","Daily Spend":1,"Date":"2023-06-04","x":1685836800000,"y":1,"fill":"#89cff0"},{"date_produced":"2023-06-05","party":"Demos","spend":1,"total_spend":1,"colors":"#89cff0","Daily Spend":1,"Date":"2023-06-05","x":1685923200000,"y":1,"fill":"#89cff0"},{"date_produced":"2023-06-06","party":"Demos","spend":1,"total_spend":1,"colors":"#89cff0","Daily Spend":1,"Date":"2023-06-06","x":1686009600000,"y":1,"fill":"#89cff0"}],"type":"area"},{"name":"HGI","data":[{"date_produced":"2023-05-31","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-05-31","x":1685491200000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-01","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-02","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-02","x":1685664000000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-03","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-03","x":1685750400000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-04","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-04","x":1685836800000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-05","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-05","x":1685923200000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-06","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-06","x":1686009600000,"y":1,"fill":"#9A6324"}],"type":"area"},{"name":"LP","data":[{"date_produced":"2023-05-31","party":"LP","spend":1,"total_spend":1,"colors":"#fffac8","Daily Spend":1,"Date":"2023-05-31","x":1685491200000,"y":1,"fill":"#fffac8"},{"date_produced":"2023-06-01","party":"LP","spend":1,"total_spend":1,"colors":"#fffac8","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#fffac8"},{"date_produced":"2023-06-04","party":"LP","spend":1,"total_spend":1,"colors":"#fffac8","Daily Spend":1,"Date":"2023-06-04","x":1685836800000,"y":1,"fill":"#fffac8"},{"date_produced":"2023-06-05","party":"LP","spend":1,"total_spend":1,"colors":"#fffac8","Daily Spend":1,"Date":"2023-06-05","x":1685923200000,"y":1,"fill":"#fffac8"}],"type":"area"},{"name":"Prava Crna Gora","data":[{"date_produced":"2023-05-31","party":"Prava Crna Gora","spend":1,"total_spend":2,"colors":"#800000","Daily Spend":1,"Date":"2023-05-31","x":1685491200000,"y":1,"fill":"#800000"},{"date_produced":"2023-06-01","party":"Prava Crna Gora","spend":1,"total_spend":2,"colors":"#800000","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#800000"},{"date_produced":"2023-06-02","party":"Prava Crna Gora","spend":2,"total_spend":2,"colors":"#800000","Daily Spend":2,"Date":"2023-06-02","x":1685664000000,"y":2,"fill":"#800000"},{"date_produced":"2023-06-03","party":"Prava Crna Gora","spend":2,"total_spend":2,"colors":"#800000","Daily Spend":2,"Date":"2023-06-03","x":1685750400000,"y":2,"fill":"#800000"},{"date_produced":"2023-06-04","party":"Prava Crna Gora","spend":2,"total_spend":2,"colors":"#800000","Daily Spend":2,"Date":"2023-06-04","x":1685836800000,"y":2,"fill":"#800000"},{"date_produced":"2023-06-05","party":"Prava Crna Gora","spend":2,"total_spend":2,"colors":"#800000","Daily Spend":2,"Date":"2023-06-05","x":1685923200000,"y":2,"fill":"#800000"},{"date_produced":"2023-06-06","party":"Prava Crna Gora","spend":2,"total_spend":2,"colors":"#800000","Daily Spend":2,"Date":"2023-06-06","x":1686009600000,"y":2,"fill":"#800000"}],"type":"area"},{"name":"SD","data":[{"date_produced":"2023-05-31","party":"SD","spend":1,"total_spend":3,"colors":"#f04949","Daily Spend":1,"Date":"2023-05-31","x":1685491200000,"y":1,"fill":"#f04949"},{"date_produced":"2023-06-01","party":"SD","spend":1,"total_spend":3,"colors":"#f04949","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#f04949"},{"date_produced":"2023-06-02","party":"SD","spend":1,"total_spend":3,"colors":"#f04949","Daily Spend":1,"Date":"2023-06-02","x":1685664000000,"y":1,"fill":"#f04949"},{"date_produced":"2023-06-03","party":"SD","spend":1,"total_spend":3,"colors":"#f04949","Daily Spend":1,"Date":"2023-06-03","x":1685750400000,"y":1,"fill":"#f04949"},{"date_produced":"2023-06-04","party":"SD","spend":2,"total_spend":3,"colors":"#f04949","Daily Spend":2,"Date":"2023-06-04","x":1685836800000,"y":2,"fill":"#f04949"},{"date_produced":"2023-06-05","party":"SD","spend":3,"total_spend":3,"colors":"#f04949","Daily Spend":3,"Date":"2023-06-05","x":1685923200000,"y":3,"fill":"#f04949"},{"date_produced":"2023-06-06","party":"SD","spend":3,"total_spend":3,"colors":"#f04949","Daily Spend":3,"Date":"2023-06-06","x":1686009600000,"y":3,"fill":"#f04949"}],"type":"area"},{"name":"SDP","data":[{"date_produced":"2023-05-31","party":"SDP","spend":1,"total_spend":3,"colors":"#ff1a1a","Daily Spend":1,"Date":"2023-05-31","x":1685491200000,"y":1,"fill":"#ff1a1a"},{"date_produced":"2023-06-01","party":"SDP","spend":1,"total_spend":3,"colors":"#ff1a1a","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#ff1a1a"},{"date_produced":"2023-06-02","party":"SDP","spend":1,"total_spend":3,"colors":"#ff1a1a","Daily Spend":1,"Date":"2023-06-02","x":1685664000000,"y":1,"fill":"#ff1a1a"},{"date_produced":"2023-06-03","party":"SDP","spend":1,"total_spend":3,"colors":"#ff1a1a","Daily Spend":1,"Date":"2023-06-03","x":1685750400000,"y":1,"fill":"#ff1a1a"},{"date_produced":"2023-06-04","party":"SDP","spend":2,"total_spend":3,"colors":"#ff1a1a","Daily Spend":2,"Date":"2023-06-04","x":1685836800000,"y":2,"fill":"#ff1a1a"},{"date_produced":"2023-06-05","party":"SDP","spend":2,"total_spend":3,"colors":"#ff1a1a","Daily Spend":2,"Date":"2023-06-05","x":1685923200000,"y":2,"fill":"#ff1a1a"},{"date_produced":"2023-06-06","party":"SDP","spend":3,"total_spend":3,"colors":"#ff1a1a","Daily Spend":3,"Date":"2023-06-06","x":1686009600000,"y":3,"fill":"#ff1a1a"}],"type":"area"},{"name":"SNP","data":[{"date_produced":"2023-06-04","party":"SNP","spend":1,"total_spend":115,"colors":"#6495ed","Daily Spend":1,"Date":"2023-06-04","x":1685836800000,"y":1,"fill":"#6495ed"},{"date_produced":"2023-06-05","party":"SNP","spend":1,"total_spend":115,"colors":"#6495ed","Daily Spend":1,"Date":"2023-06-05","x":1685923200000,"y":1,"fill":"#6495ed"},{"date_produced":"2023-06-06","party":"SNP","spend":115,"total_spend":115,"colors":"#6495ed","Daily Spend":115,"Date":"2023-06-06","x":1686009600000,"y":115,"fill":"#6495ed"}],"type":"area"},{"name":"DF","data":[{"date_produced":"2023-05-31","party":"DF","spend":2,"total_spend":126,"colors":"#00008b","Daily Spend":2,"Date":"2023-05-31","x":1685491200000,"y":2,"fill":"#00008b"},{"date_produced":"2023-06-01","party":"DF","spend":2,"total_spend":126,"colors":"#00008b","Daily Spend":2,"Date":"2023-06-01","x":1685577600000,"y":2,"fill":"#00008b"},{"date_produced":"2023-06-02","party":"DF","spend":2,"total_spend":126,"colors":"#00008b","Daily Spend":2,"Date":"2023-06-02","x":1685664000000,"y":2,"fill":"#00008b"},{"date_produced":"2023-06-03","party":"DF","spend":2,"total_spend":126,"colors":"#00008b","Daily Spend":2,"Date":"2023-06-03","x":1685750400000,"y":2,"fill":"#00008b"},{"date_produced":"2023-06-04","party":"DF","spend":2,"total_spend":126,"colors":"#00008b","Daily Spend":2,"Date":"2023-06-04","x":1685836800000,"y":2,"fill":"#00008b"},{"date_produced":"2023-06-05","party":"DF","spend":126,"total_spend":126,"colors":"#00008b","Daily Spend":126,"Date":"2023-06-05","x":1685923200000,"y":126,"fill":"#00008b"},{"date_produced":"2023-06-06","party":"DF","spend":126,"total_spend":126,"colors":"#00008b","Daily Spend":126,"Date":"2023-06-06","x":1686009600000,"y":126,"fill":"#00008b"}],"type":"area"},{"name":"Drugo","data":[{"date_produced":"2023-05-31","party":"Drugo","spend":118,"total_spend":180,"colors":"#e6194B","Daily Spend":118,"Date":"2023-05-31","x":1685491200000,"y":118,"fill":"#e6194B"},{"date_produced":"2023-06-01","party":"Drugo","spend":105,"total_spend":180,"colors":"#e6194B","Daily Spend":105,"Date":"2023-06-01","x":1685577600000,"y":105,"fill":"#e6194B"},{"date_produced":"2023-06-02","party":"Drugo","spend":130,"total_spend":180,"colors":"#e6194B","Daily Spend":130,"Date":"2023-06-02","x":1685664000000,"y":130,"fill":"#e6194B"},{"date_produced":"2023-06-03","party":"Drugo","spend":127,"total_spend":180,"colors":"#e6194B","Daily Spend":127,"Date":"2023-06-03","x":1685750400000,"y":127,"fill":"#e6194B"},{"date_produced":"2023-06-04","party":"Drugo","spend":122,"total_spend":180,"colors":"#e6194B","Daily Spend":122,"Date":"2023-06-04","x":1685836800000,"y":122,"fill":"#e6194B"},{"date_produced":"2023-06-05","party":"Drugo","spend":180,"total_spend":180,"colors":"#e6194B","Daily Spend":180,"Date":"2023-06-05","x":1685923200000,"y":180,"fill":"#e6194B"},{"date_produced":"2023-06-06","party":"Drugo","spend":162,"total_spend":180,"colors":"#e6194B","Daily Spend":162,"Date":"2023-06-06","x":1686009600000,"y":162,"fill":"#e6194B"}],"type":"area"},{"name":"DPS","data":[{"date_produced":"2023-06-01","party":"DPS","spend":1,"total_spend":257,"colors":"#524fa1","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#524fa1"},{"date_produced":"2023-06-02","party":"DPS","spend":141,"total_spend":257,"colors":"#524fa1","Daily Spend":141,"Date":"2023-06-02","x":1685664000000,"y":141,"fill":"#524fa1"},{"date_produced":"2023-06-03","party":"DPS","spend":257,"total_spend":257,"colors":"#524fa1","Daily Spend":257,"Date":"2023-06-03","x":1685750400000,"y":257,"fill":"#524fa1"},{"date_produced":"2023-06-04","party":"DPS","spend":235,"total_spend":257,"colors":"#524fa1","Daily Spend":235,"Date":"2023-06-04","x":1685836800000,"y":235,"fill":"#524fa1"},{"date_produced":"2023-06-05","party":"DPS","spend":113,"total_spend":257,"colors":"#524fa1","Daily Spend":113,"Date":"2023-06-05","x":1685923200000,"y":113,"fill":"#524fa1"},{"date_produced":"2023-06-06","party":"DPS","spend":1,"total_spend":257,"colors":"#524fa1","Daily Spend":1,"Date":"2023-06-06","x":1686009600000,"y":1,"fill":"#524fa1"}],"type":"area"},{"name":"URA","data":[{"date_produced":"2023-05-31","party":"URA","spend":289,"total_spend":756,"colors":"#00FF00","Daily Spend":289,"Date":"2023-05-31","x":1685491200000,"y":289,"fill":"#00FF00"},{"date_produced":"2023-06-01","party":"URA","spend":129,"total_spend":756,"colors":"#00FF00","Daily Spend":129,"Date":"2023-06-01","x":1685577600000,"y":129,"fill":"#00FF00"},{"date_produced":"2023-06-02","party":"URA","spend":207,"total_spend":756,"colors":"#00FF00","Daily Spend":207,"Date":"2023-06-02","x":1685664000000,"y":207,"fill":"#00FF00"},{"date_produced":"2023-06-03","party":"URA","spend":247,"total_spend":756,"colors":"#00FF00","Daily Spend":247,"Date":"2023-06-03","x":1685750400000,"y":247,"fill":"#00FF00"},{"date_produced":"2023-06-04","party":"URA","spend":370,"total_spend":756,"colors":"#00FF00","Daily Spend":370,"Date":"2023-06-04","x":1685836800000,"y":370,"fill":"#00FF00"},{"date_produced":"2023-06-05","party":"URA","spend":688,"total_spend":756,"colors":"#00FF00","Daily Spend":688,"Date":"2023-06-05","x":1685923200000,"y":688,"fill":"#00FF00"},{"date_produced":"2023-06-06","party":"URA","spend":756,"total_spend":756,"colors":"#00FF00","Daily Spend":756,"Date":"2023-06-06","x":1686009600000,"y":756,"fill":"#00FF00"}],"type":"area"},{"name":"ES!","data":[{"date_produced":"2023-05-31","party":"ES!","spend":121,"total_spend":898,"colors":"#f1c851","Daily Spend":121,"Date":"2023-05-31","x":1685491200000,"y":121,"fill":"#f1c851"},{"date_produced":"2023-06-01","party":"ES!","spend":217,"total_spend":898,"colors":"#f1c851","Daily Spend":217,"Date":"2023-06-01","x":1685577600000,"y":217,"fill":"#f1c851"},{"date_produced":"2023-06-02","party":"ES!","spend":266,"total_spend":898,"colors":"#f1c851","Daily Spend":266,"Date":"2023-06-02","x":1685664000000,"y":266,"fill":"#f1c851"},{"date_produced":"2023-06-03","party":"ES!","spend":368,"total_spend":898,"colors":"#f1c851","Daily Spend":368,"Date":"2023-06-03","x":1685750400000,"y":368,"fill":"#f1c851"},{"date_produced":"2023-06-04","party":"ES!","spend":539,"total_spend":898,"colors":"#f1c851","Daily Spend":539,"Date":"2023-06-04","x":1685836800000,"y":539,"fill":"#f1c851"},{"date_produced":"2023-06-05","party":"ES!","spend":656,"total_spend":898,"colors":"#f1c851","Daily Spend":656,"Date":"2023-06-05","x":1685923200000,"y":656,"fill":"#f1c851"},{"date_produced":"2023-06-06","party":"ES!","spend":898,"total_spend":898,"colors":"#f1c851","Daily Spend":898,"Date":"2023-06-06","x":1686009600000,"y":898,"fill":"#f1c851"}],"type":"area"},{"name":"DCG","data":[{"date_produced":"2023-05-31","party":"DCG","spend":812,"total_spend":1596,"colors":"#f5911d","Daily Spend":812,"Date":"2023-05-31","x":1685491200000,"y":812,"fill":"#f5911d"},{"date_produced":"2023-06-01","party":"DCG","spend":1101,"total_spend":1596,"colors":"#f5911d","Daily Spend":1101,"Date":"2023-06-01","x":1685577600000,"y":1101,"fill":"#f5911d"},{"date_produced":"2023-06-02","party":"DCG","spend":1596,"total_spend":1596,"colors":"#f5911d","Daily Spend":1596,"Date":"2023-06-02","x":1685664000000,"y":1596,"fill":"#f5911d"},{"date_produced":"2023-06-03","party":"DCG","spend":854,"total_spend":1596,"colors":"#f5911d","Daily Spend":854,"Date":"2023-06-03","x":1685750400000,"y":854,"fill":"#f5911d"},{"date_produced":"2023-06-04","party":"DCG","spend":732,"total_spend":1596,"colors":"#f5911d","Daily Spend":732,"Date":"2023-06-04","x":1685836800000,"y":732,"fill":"#f5911d"},{"date_produced":"2023-06-05","party":"DCG","spend":831,"total_spend":1596,"colors":"#f5911d","Daily Spend":831,"Date":"2023-06-05","x":1685923200000,"y":831,"fill":"#f5911d"},{"date_produced":"2023-06-06","party":"DCG","spend":1173,"total_spend":1596,"colors":"#f5911d","Daily Spend":1173,"Date":"2023-06-06","x":1686009600000,"y":1173,"fill":"#f5911d"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"Date"},"categories":null},"colors":["#89cff0","#9A6324","#fffac8","#800000","#f04949","#ff1a1a","#6495ed","#00008b","#e6194B","#524fa1","#00FF00","#f1c851","#f5911d"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
 </div>
 </div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+</section>
+<section id="total-spend" class="level2">
+<h2 class="anchored" data-anchor-id="total-spend">Total Spend</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">May 8th - Jun 6th 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">May 31st - Jun 6th 2023 (Last 7 days)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>In total, political parties spend €32,456 and ran 649 ad copies on Meta in this timeframe.</p>
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="blcbfbnkrn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="gyvjykndjn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 html {
   font-family: Chivo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#blcbfbnkrn) .gt_table {
+:where(#gyvjykndjn) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -283,7 +304,7 @@ html {
   border-left-color: #D3D3D3;
 }
 
-:where(#blcbfbnkrn) .gt_heading {
+:where(#gyvjykndjn) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -295,12 +316,12 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#blcbfbnkrn) .gt_caption {
+:where(#gyvjykndjn) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#blcbfbnkrn) .gt_title {
+:where(#gyvjykndjn) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -312,7 +333,7 @@ html {
   border-bottom-width: 0;
 }
 
-:where(#blcbfbnkrn) .gt_subtitle {
+:where(#gyvjykndjn) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -324,13 +345,13 @@ html {
   border-top-width: 0;
 }
 
-:where(#blcbfbnkrn) .gt_bottom_border {
+:where(#gyvjykndjn) .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#blcbfbnkrn) .gt_col_headings {
+:where(#gyvjykndjn) .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -345,7 +366,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#blcbfbnkrn) .gt_col_heading {
+:where(#gyvjykndjn) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -365,7 +386,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#blcbfbnkrn) .gt_column_spanner_outer {
+:where(#gyvjykndjn) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -377,15 +398,15 @@ html {
   padding-right: 4px;
 }
 
-:where(#blcbfbnkrn) .gt_column_spanner_outer:first-child {
+:where(#gyvjykndjn) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#blcbfbnkrn) .gt_column_spanner_outer:last-child {
+:where(#gyvjykndjn) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#blcbfbnkrn) .gt_column_spanner {
+:where(#gyvjykndjn) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -397,7 +418,7 @@ html {
   width: 100%;
 }
 
-:where(#blcbfbnkrn) .gt_group_heading {
+:where(#gyvjykndjn) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -423,7 +444,7 @@ html {
   text-align: left;
 }
 
-:where(#blcbfbnkrn) .gt_empty_group_heading {
+:where(#gyvjykndjn) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -438,15 +459,15 @@ html {
   vertical-align: middle;
 }
 
-:where(#blcbfbnkrn) .gt_from_md > :first-child {
+:where(#gyvjykndjn) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#blcbfbnkrn) .gt_from_md > :last-child {
+:where(#gyvjykndjn) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#blcbfbnkrn) .gt_row {
+:where(#gyvjykndjn) .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -465,7 +486,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#blcbfbnkrn) .gt_stub {
+:where(#gyvjykndjn) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -478,7 +499,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#blcbfbnkrn) .gt_stub_row_group {
+:where(#gyvjykndjn) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -492,11 +513,11 @@ html {
   vertical-align: top;
 }
 
-:where(#blcbfbnkrn) .gt_row_group_first td {
+:where(#gyvjykndjn) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#blcbfbnkrn) .gt_summary_row {
+:where(#gyvjykndjn) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -506,16 +527,16 @@ html {
   padding-right: 5px;
 }
 
-:where(#blcbfbnkrn) .gt_first_summary_row {
+:where(#gyvjykndjn) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#blcbfbnkrn) .gt_first_summary_row.thick {
+:where(#gyvjykndjn) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#blcbfbnkrn) .gt_last_summary_row {
+:where(#gyvjykndjn) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -525,7 +546,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#blcbfbnkrn) .gt_grand_summary_row {
+:where(#gyvjykndjn) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -535,7 +556,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#blcbfbnkrn) .gt_first_grand_summary_row {
+:where(#gyvjykndjn) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -545,11 +566,11 @@ html {
   border-top-color: #D3D3D3;
 }
 
-:where(#blcbfbnkrn) .gt_striped {
+:where(#gyvjykndjn) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#blcbfbnkrn) .gt_table_body {
+:where(#gyvjykndjn) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -558,7 +579,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#blcbfbnkrn) .gt_footnotes {
+:where(#gyvjykndjn) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -572,7 +593,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#blcbfbnkrn) .gt_footnote {
+:where(#gyvjykndjn) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -581,7 +602,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#blcbfbnkrn) .gt_sourcenotes {
+:where(#gyvjykndjn) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -595,7 +616,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#blcbfbnkrn) .gt_sourcenote {
+:where(#gyvjykndjn) .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -603,64 +624,64 @@ html {
   padding-right: 5px;
 }
 
-:where(#blcbfbnkrn) .gt_left {
+:where(#gyvjykndjn) .gt_left {
   text-align: left;
 }
 
-:where(#blcbfbnkrn) .gt_center {
+:where(#gyvjykndjn) .gt_center {
   text-align: center;
 }
 
-:where(#blcbfbnkrn) .gt_right {
+:where(#gyvjykndjn) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#blcbfbnkrn) .gt_font_normal {
+:where(#gyvjykndjn) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#blcbfbnkrn) .gt_font_bold {
+:where(#gyvjykndjn) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#blcbfbnkrn) .gt_font_italic {
+:where(#gyvjykndjn) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#blcbfbnkrn) .gt_super {
+:where(#gyvjykndjn) .gt_super {
   font-size: 65%;
 }
 
-:where(#blcbfbnkrn) .gt_footnote_marks {
+:where(#gyvjykndjn) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#blcbfbnkrn) .gt_asterisk {
+:where(#gyvjykndjn) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#blcbfbnkrn) .gt_indent_1 {
+:where(#gyvjykndjn) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#blcbfbnkrn) .gt_indent_2 {
+:where(#gyvjykndjn) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#blcbfbnkrn) .gt_indent_3 {
+:where(#gyvjykndjn) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#blcbfbnkrn) .gt_indent_4 {
+:where(#gyvjykndjn) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#blcbfbnkrn) .gt_indent_5 {
+:where(#gyvjykndjn) .gt_indent_5 {
   text-indent: 25px;
 }
 
@@ -818,18 +839,18 @@ tbody tr:last-child {
 </div>
 </div>
 </div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>In total, political parties spend €18,354 and ran 378 ad copies on Meta in this timeframe.</p>
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="mwfqtnxowt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ewwnyfxonf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 html {
   font-family: Chivo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#mwfqtnxowt) .gt_table {
+:where(#ewwnyfxonf) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -854,7 +875,7 @@ html {
   border-left-color: #D3D3D3;
 }
 
-:where(#mwfqtnxowt) .gt_heading {
+:where(#ewwnyfxonf) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -866,12 +887,12 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#mwfqtnxowt) .gt_caption {
+:where(#ewwnyfxonf) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#mwfqtnxowt) .gt_title {
+:where(#ewwnyfxonf) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -883,7 +904,7 @@ html {
   border-bottom-width: 0;
 }
 
-:where(#mwfqtnxowt) .gt_subtitle {
+:where(#ewwnyfxonf) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -895,13 +916,13 @@ html {
   border-top-width: 0;
 }
 
-:where(#mwfqtnxowt) .gt_bottom_border {
+:where(#ewwnyfxonf) .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#mwfqtnxowt) .gt_col_headings {
+:where(#ewwnyfxonf) .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -916,7 +937,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#mwfqtnxowt) .gt_col_heading {
+:where(#ewwnyfxonf) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -936,7 +957,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#mwfqtnxowt) .gt_column_spanner_outer {
+:where(#ewwnyfxonf) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -948,15 +969,15 @@ html {
   padding-right: 4px;
 }
 
-:where(#mwfqtnxowt) .gt_column_spanner_outer:first-child {
+:where(#ewwnyfxonf) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#mwfqtnxowt) .gt_column_spanner_outer:last-child {
+:where(#ewwnyfxonf) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#mwfqtnxowt) .gt_column_spanner {
+:where(#ewwnyfxonf) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -968,7 +989,7 @@ html {
   width: 100%;
 }
 
-:where(#mwfqtnxowt) .gt_group_heading {
+:where(#ewwnyfxonf) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -994,7 +1015,7 @@ html {
   text-align: left;
 }
 
-:where(#mwfqtnxowt) .gt_empty_group_heading {
+:where(#ewwnyfxonf) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1009,15 +1030,15 @@ html {
   vertical-align: middle;
 }
 
-:where(#mwfqtnxowt) .gt_from_md > :first-child {
+:where(#ewwnyfxonf) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#mwfqtnxowt) .gt_from_md > :last-child {
+:where(#ewwnyfxonf) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#mwfqtnxowt) .gt_row {
+:where(#ewwnyfxonf) .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -1036,7 +1057,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#mwfqtnxowt) .gt_stub {
+:where(#ewwnyfxonf) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1049,7 +1070,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#mwfqtnxowt) .gt_stub_row_group {
+:where(#ewwnyfxonf) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1063,11 +1084,11 @@ html {
   vertical-align: top;
 }
 
-:where(#mwfqtnxowt) .gt_row_group_first td {
+:where(#ewwnyfxonf) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#mwfqtnxowt) .gt_summary_row {
+:where(#ewwnyfxonf) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1077,16 +1098,16 @@ html {
   padding-right: 5px;
 }
 
-:where(#mwfqtnxowt) .gt_first_summary_row {
+:where(#ewwnyfxonf) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#mwfqtnxowt) .gt_first_summary_row.thick {
+:where(#ewwnyfxonf) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#mwfqtnxowt) .gt_last_summary_row {
+:where(#ewwnyfxonf) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1096,7 +1117,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#mwfqtnxowt) .gt_grand_summary_row {
+:where(#ewwnyfxonf) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1106,7 +1127,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#mwfqtnxowt) .gt_first_grand_summary_row {
+:where(#ewwnyfxonf) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1116,11 +1137,11 @@ html {
   border-top-color: #D3D3D3;
 }
 
-:where(#mwfqtnxowt) .gt_striped {
+:where(#ewwnyfxonf) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#mwfqtnxowt) .gt_table_body {
+:where(#ewwnyfxonf) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1129,7 +1150,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#mwfqtnxowt) .gt_footnotes {
+:where(#ewwnyfxonf) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1143,7 +1164,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#mwfqtnxowt) .gt_footnote {
+:where(#ewwnyfxonf) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1152,7 +1173,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#mwfqtnxowt) .gt_sourcenotes {
+:where(#ewwnyfxonf) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1166,7 +1187,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#mwfqtnxowt) .gt_sourcenote {
+:where(#ewwnyfxonf) .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1174,64 +1195,64 @@ html {
   padding-right: 5px;
 }
 
-:where(#mwfqtnxowt) .gt_left {
+:where(#ewwnyfxonf) .gt_left {
   text-align: left;
 }
 
-:where(#mwfqtnxowt) .gt_center {
+:where(#ewwnyfxonf) .gt_center {
   text-align: center;
 }
 
-:where(#mwfqtnxowt) .gt_right {
+:where(#ewwnyfxonf) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#mwfqtnxowt) .gt_font_normal {
+:where(#ewwnyfxonf) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#mwfqtnxowt) .gt_font_bold {
+:where(#ewwnyfxonf) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#mwfqtnxowt) .gt_font_italic {
+:where(#ewwnyfxonf) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#mwfqtnxowt) .gt_super {
+:where(#ewwnyfxonf) .gt_super {
   font-size: 65%;
 }
 
-:where(#mwfqtnxowt) .gt_footnote_marks {
+:where(#ewwnyfxonf) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#mwfqtnxowt) .gt_asterisk {
+:where(#ewwnyfxonf) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#mwfqtnxowt) .gt_indent_1 {
+:where(#ewwnyfxonf) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#mwfqtnxowt) .gt_indent_2 {
+:where(#ewwnyfxonf) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#mwfqtnxowt) .gt_indent_3 {
+:where(#ewwnyfxonf) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#mwfqtnxowt) .gt_indent_4 {
+:where(#ewwnyfxonf) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#mwfqtnxowt) .gt_indent_5 {
+:where(#ewwnyfxonf) .gt_indent_5 {
   text-indent: 25px;
 }
 
