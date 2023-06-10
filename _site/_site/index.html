@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>today - Untitled</title>
+<title>2023 Montenegrin legislative election</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -121,9 +58,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<script src="site_libs/proj4js-2.3.15/proj4.js"></script>
+<link href="site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="site_libs/highcharts-9.3.1/highcharts.js"></script>
+<script src="site_libs/highcharts-9.3.1/highcharts-3d.js"></script>
+<script src="site_libs/highcharts-9.3.1/highcharts-more.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/stock.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/map.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/data.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/exporting.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/drilldown.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/item-series.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/annotations.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/export-data.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/funnel.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/heatmap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/treemap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/sankey.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/organization.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/sunburst.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/vector.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/xrange.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/tilemap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/venn.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/gantt.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/timeline.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/bullet.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/lollipop.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/series-label.js"></script>
+<script src="site_libs/highcharts-9.3.1/plugins/motion.js"></script>
+<script src="site_libs/highcharts-9.3.1/custom/reset.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/boost.js"></script>
+<script src="site_libs/highchart-binding-0.9.4/highchart.js"></script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -134,7 +113,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">today</span>
+    <span class="navbar-title">2023 Montenegrin legislative election</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -163,8 +142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link active" data-scroll-target="#quarto">Quarto</a></li>
-  <li><a href="#running-code" id="toc-running-code" class="nav-link" data-scroll-target="#running-code">Running Code</a></li>
+  <li><a href="#topline-statistics" id="toc-topline-statistics" class="nav-link active" data-scroll-target="#topline-statistics">Topline Statistics</a></li>
   </ul>
 </nav>
     </div>
@@ -173,7 +151,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Untitled</h1>
+<h1 class="title">2023 Montenegrin legislative election</h1>
 </div>
 
 
@@ -187,26 +165,1240 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="quarto" class="level2">
-<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
-<p>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <a href="https://quarto.org" class="uri">https://quarto.org</a>.</p>
-</section>
-<section id="running-code" class="level2">
-<h2 class="anchored" data-anchor-id="running-code">Running Code</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
+<style>
+    body .main-container {
+        max-width: 1920px !important;
+    }
+</style>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+
 </div>
-</div>
-<p>You can add options to executable code like this</p>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
+
+</div>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Methodology</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Election Targeting Dashboards</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">About Us</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>In collaboration with <a href="https://whotargets.me/">Who Targets Me</a>, we monitored 91 political advertisers in Montenegro during the 2023 Montenegrin legislative election to better understand how campaigns use different targeting methods made available by Meta. To do this, we used data from the <a href="https://www.facebook.com/ads/library/">Meta Ad Library</a>, using the new ‘Audience’ data which gives some detail on how pages target their ads.</p>
+<p>To better understand the election, we kept only advertisers who:</p>
+<ol type="1">
+<li>Advertised in the last 7 days (May 31st - Jun 6th 2023)</li>
+<li>Advertised in the last 30 days (May 8th - Jun 6th 2023)</li>
+</ol>
+<blockquote class="blockquote">
+<p>Note: Meta only provides 7, 30 and 90 days windows for the targeting data in their Ad Library. Meta’s data also lags by a few days. Report will be updated as soon as new data is available.</p>
+</blockquote>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>A list of election dashboards:</p>
+<ul>
+<li>🇳🇱 <a href="https://favstats.github.io/DutchElectionObservatory/en/index.html">2021 Dutch parliamentary election</a> (15th-17th March 2021)</li>
+<li>🇩🇪 <a href="https://favstats.shinyapps.io/btw21_wtm">2021 German federal election</a> (26 September 2021)</li>
+<li>🇸🇪 <a href="https://favstats.github.io/SwedishElection2022/">2022 Swedish general election</a> (11th September 2022)</li>
+<li>🇺🇸 <a href="https://whotargetsme.shinyapps.io/midterms2022/">2022 United States midterm elections</a> (8th November 2022)</li>
+<li>🇺🇸 <a href="https://whotargetsme.github.io/midterms2022_dashboard/">2022 United States midterm elections - Georgia Runoff</a> (6th December 2022)</li>
+<li>🇮🇹 <a href="https://favstats.github.io/regionali2023/">2023 Lazio &amp; Lombardy regional election</a> (12-13th February 2023)</li>
+<li>🇪🇪 <a href="https://favstats.github.io/EstoniaElection2023/">2023 Estonian parliamentary election</a> (5th March 2023)</li>
+<li>🇳🇱 <a href="https://favstats.github.io/ProvincialeStatenverkiezingen2023/">2023 Dutch provincial elections</a> (15th March 2023)</li>
+<li>🇲🇪 <a href="https://refined-github-html-preview.kidonng.workers.dev/favstats/MontenegroPresidentialElection2023/raw/dc4d9baafe3f30b7d79e45206f63c745f51a25b3/index.html">2023 Montenegrin presidential elections</a> (19th March 2023) - 1st round</li>
+<li>🇦🇺 <a href="https://favstats.github.io/NSWAustralianElection2023/">2023 New South Wales state election</a> (25th March 2023)</li>
+<li>🇫🇮 <a href="https://favstats.github.io/FinlandElections2023/">2023 Finnish parliamentary election</a> (2 April 2023)</li>
+<li>🇹🇷 <a href="https://refined-github-html-preview.kidonng.workers.dev/favstats/TurkishElection2023/raw/ce6281fe74b8f5a3f99c576c31bd95758cf80dec/index.html">2023 Turkish general election</a> (14 May 2023) - Round 1</li>
+<li>🇩🇪 <a href="https://favstats.github.io/BremenStateElection2023/">2023 Bremen State election</a> (14 May 2023)</li>
+<li>🇬🇷 <a href="https://favstats.github.io/BremenStateElection2023/">2023 Greek Legislative election</a> (21 May 2023)</li>
+<li>🇹🇷 <a href="https://favstats.github.io/TurkishElection2023/">2023 Turkish Presidential election</a> (14 May 2023) - Round 2</li>
+<li>🇲🇪 <a href="https://favstats.github.io/2023MontenegrinParliamentaryElection/">Montenegrin parliamentary elections, 2023</a> (11 June 2023)</li>
+</ul>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div class="row">
+<div class="col-sm-4 col-md-4">
+<div class="card">
+<div class="card-body pb-5">
+<h6 class="card-title mb-0 anchored">Fabio Votta</h6>
+</div>
+<img class="card-img-top" src="https://www.uva.nl/binaries/_ht_1677599571673/cardmedium/content/gallery/personen/v/o/fabio-votta.jpg" style="object-fit: cover; height: 200px; width: 100%;">
+<p class="card-text">Ph.D. candidate in Political Communication at the University of Amsterdam who studies (online) political microtargeting and its usage around the world.</p>
+<a href="https://twitter.com/favstats" class="btn btn-primary">Link</a>
 </div>
 </div>
-<p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
+<div class="col-sm-4 col-md-4">
+<div class="card">
+<div class="card-body pb-5">
+<h6 class="card-title mb-0 anchored">Who Targets Me</h6>
+</div>
+<img class="card-img-top" src="https://whotargets.me/wp-content/uploads/2020/06/wtm_logo_2020.png" style="object-fit: cover; height: 200px; width: 100%;">
+<p class="card-text">Grassroots activist group advocating for transparency in the digital age by monitoring political adverts on social media and their impact on democracy.</p>
+<a href="#" class="btn btn-primary">Link</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="topline-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="topline-statistics">Topline Statistics</h2>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Daily Spend</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">May 8th - Jun 6th 2023 (Last 30 days)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">May 31st - Jun 6th 2023 (Last 7 days)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="htmlwidget-8a7aa3d321ea13f065cd" style="width:100%;height:480px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8a7aa3d321ea13f065cd">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"Demos","data":[{"date_produced":"2023-06-02","party":"Demos","spend":1,"total_spend":1,"colors":"#89cff0","Daily Spend":1,"Date":"2023-06-02","x":1685664000000,"y":1,"fill":"#89cff0"},{"date_produced":"2023-06-03","party":"Demos","spend":1,"total_spend":1,"colors":"#89cff0","Daily Spend":1,"Date":"2023-06-03","x":1685750400000,"y":1,"fill":"#89cff0"},{"date_produced":"2023-06-04","party":"Demos","spend":1,"total_spend":1,"colors":"#89cff0","Daily Spend":1,"Date":"2023-06-04","x":1685836800000,"y":1,"fill":"#89cff0"},{"date_produced":"2023-06-05","party":"Demos","spend":1,"total_spend":1,"colors":"#89cff0","Daily Spend":1,"Date":"2023-06-05","x":1685923200000,"y":1,"fill":"#89cff0"},{"date_produced":"2023-06-06","party":"Demos","spend":1,"total_spend":1,"colors":"#89cff0","Daily Spend":1,"Date":"2023-06-06","x":1686009600000,"y":1,"fill":"#89cff0"}],"type":"area"},{"name":"HGI","data":[{"date_produced":"2023-05-31","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-05-31","x":1685491200000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-01","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-02","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-02","x":1685664000000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-03","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-03","x":1685750400000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-04","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-04","x":1685836800000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-05","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-05","x":1685923200000,"y":1,"fill":"#9A6324"},{"date_produced":"2023-06-06","party":"HGI","spend":1,"total_spend":1,"colors":"#9A6324","Daily Spend":1,"Date":"2023-06-06","x":1686009600000,"y":1,"fill":"#9A6324"}],"type":"area"},{"name":"LP","data":[{"date_produced":"2023-05-31","party":"LP","spend":1,"total_spend":1,"colors":"#fffac8","Daily Spend":1,"Date":"2023-05-31","x":1685491200000,"y":1,"fill":"#fffac8"},{"date_produced":"2023-06-01","party":"LP","spend":1,"total_spend":1,"colors":"#fffac8","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#fffac8"},{"date_produced":"2023-06-04","party":"LP","spend":1,"total_spend":1,"colors":"#fffac8","Daily Spend":1,"Date":"2023-06-04","x":1685836800000,"y":1,"fill":"#fffac8"},{"date_produced":"2023-06-05","party":"LP","spend":1,"total_spend":1,"colors":"#fffac8","Daily Spend":1,"Date":"2023-06-05","x":1685923200000,"y":1,"fill":"#fffac8"}],"type":"area"},{"name":"Prava Crna Gora","data":[{"date_produced":"2023-05-31","party":"Prava Crna Gora","spend":1,"total_spend":2,"colors":"#800000","Daily Spend":1,"Date":"2023-05-31","x":1685491200000,"y":1,"fill":"#800000"},{"date_produced":"2023-06-01","party":"Prava Crna Gora","spend":1,"total_spend":2,"colors":"#800000","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#800000"},{"date_produced":"2023-06-02","party":"Prava Crna Gora","spend":2,"total_spend":2,"colors":"#800000","Daily Spend":2,"Date":"2023-06-02","x":1685664000000,"y":2,"fill":"#800000"},{"date_produced":"2023-06-03","party":"Prava Crna Gora","spend":2,"total_spend":2,"colors":"#800000","Daily Spend":2,"Date":"2023-06-03","x":1685750400000,"y":2,"fill":"#800000"},{"date_produced":"2023-06-04","party":"Prava Crna Gora","spend":2,"total_spend":2,"colors":"#800000","Daily Spend":2,"Date":"2023-06-04","x":1685836800000,"y":2,"fill":"#800000"},{"date_produced":"2023-06-05","party":"Prava Crna Gora","spend":2,"total_spend":2,"colors":"#800000","Daily Spend":2,"Date":"2023-06-05","x":1685923200000,"y":2,"fill":"#800000"},{"date_produced":"2023-06-06","party":"Prava Crna Gora","spend":2,"total_spend":2,"colors":"#800000","Daily Spend":2,"Date":"2023-06-06","x":1686009600000,"y":2,"fill":"#800000"}],"type":"area"},{"name":"SD","data":[{"date_produced":"2023-05-31","party":"SD","spend":1,"total_spend":3,"colors":"#f04949","Daily Spend":1,"Date":"2023-05-31","x":1685491200000,"y":1,"fill":"#f04949"},{"date_produced":"2023-06-01","party":"SD","spend":1,"total_spend":3,"colors":"#f04949","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#f04949"},{"date_produced":"2023-06-02","party":"SD","spend":1,"total_spend":3,"colors":"#f04949","Daily Spend":1,"Date":"2023-06-02","x":1685664000000,"y":1,"fill":"#f04949"},{"date_produced":"2023-06-03","party":"SD","spend":1,"total_spend":3,"colors":"#f04949","Daily Spend":1,"Date":"2023-06-03","x":1685750400000,"y":1,"fill":"#f04949"},{"date_produced":"2023-06-04","party":"SD","spend":2,"total_spend":3,"colors":"#f04949","Daily Spend":2,"Date":"2023-06-04","x":1685836800000,"y":2,"fill":"#f04949"},{"date_produced":"2023-06-05","party":"SD","spend":3,"total_spend":3,"colors":"#f04949","Daily Spend":3,"Date":"2023-06-05","x":1685923200000,"y":3,"fill":"#f04949"},{"date_produced":"2023-06-06","party":"SD","spend":3,"total_spend":3,"colors":"#f04949","Daily Spend":3,"Date":"2023-06-06","x":1686009600000,"y":3,"fill":"#f04949"}],"type":"area"},{"name":"SDP","data":[{"date_produced":"2023-05-31","party":"SDP","spend":1,"total_spend":3,"colors":"#ff1a1a","Daily Spend":1,"Date":"2023-05-31","x":1685491200000,"y":1,"fill":"#ff1a1a"},{"date_produced":"2023-06-01","party":"SDP","spend":1,"total_spend":3,"colors":"#ff1a1a","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#ff1a1a"},{"date_produced":"2023-06-02","party":"SDP","spend":1,"total_spend":3,"colors":"#ff1a1a","Daily Spend":1,"Date":"2023-06-02","x":1685664000000,"y":1,"fill":"#ff1a1a"},{"date_produced":"2023-06-03","party":"SDP","spend":1,"total_spend":3,"colors":"#ff1a1a","Daily Spend":1,"Date":"2023-06-03","x":1685750400000,"y":1,"fill":"#ff1a1a"},{"date_produced":"2023-06-04","party":"SDP","spend":2,"total_spend":3,"colors":"#ff1a1a","Daily Spend":2,"Date":"2023-06-04","x":1685836800000,"y":2,"fill":"#ff1a1a"},{"date_produced":"2023-06-05","party":"SDP","spend":2,"total_spend":3,"colors":"#ff1a1a","Daily Spend":2,"Date":"2023-06-05","x":1685923200000,"y":2,"fill":"#ff1a1a"},{"date_produced":"2023-06-06","party":"SDP","spend":3,"total_spend":3,"colors":"#ff1a1a","Daily Spend":3,"Date":"2023-06-06","x":1686009600000,"y":3,"fill":"#ff1a1a"}],"type":"area"},{"name":"SNP","data":[{"date_produced":"2023-06-04","party":"SNP","spend":1,"total_spend":115,"colors":"#6495ed","Daily Spend":1,"Date":"2023-06-04","x":1685836800000,"y":1,"fill":"#6495ed"},{"date_produced":"2023-06-05","party":"SNP","spend":1,"total_spend":115,"colors":"#6495ed","Daily Spend":1,"Date":"2023-06-05","x":1685923200000,"y":1,"fill":"#6495ed"},{"date_produced":"2023-06-06","party":"SNP","spend":115,"total_spend":115,"colors":"#6495ed","Daily Spend":115,"Date":"2023-06-06","x":1686009600000,"y":115,"fill":"#6495ed"}],"type":"area"},{"name":"DF","data":[{"date_produced":"2023-05-31","party":"DF","spend":2,"total_spend":126,"colors":"#00008b","Daily Spend":2,"Date":"2023-05-31","x":1685491200000,"y":2,"fill":"#00008b"},{"date_produced":"2023-06-01","party":"DF","spend":2,"total_spend":126,"colors":"#00008b","Daily Spend":2,"Date":"2023-06-01","x":1685577600000,"y":2,"fill":"#00008b"},{"date_produced":"2023-06-02","party":"DF","spend":2,"total_spend":126,"colors":"#00008b","Daily Spend":2,"Date":"2023-06-02","x":1685664000000,"y":2,"fill":"#00008b"},{"date_produced":"2023-06-03","party":"DF","spend":2,"total_spend":126,"colors":"#00008b","Daily Spend":2,"Date":"2023-06-03","x":1685750400000,"y":2,"fill":"#00008b"},{"date_produced":"2023-06-04","party":"DF","spend":2,"total_spend":126,"colors":"#00008b","Daily Spend":2,"Date":"2023-06-04","x":1685836800000,"y":2,"fill":"#00008b"},{"date_produced":"2023-06-05","party":"DF","spend":126,"total_spend":126,"colors":"#00008b","Daily Spend":126,"Date":"2023-06-05","x":1685923200000,"y":126,"fill":"#00008b"},{"date_produced":"2023-06-06","party":"DF","spend":126,"total_spend":126,"colors":"#00008b","Daily Spend":126,"Date":"2023-06-06","x":1686009600000,"y":126,"fill":"#00008b"}],"type":"area"},{"name":"Drugo","data":[{"date_produced":"2023-05-31","party":"Drugo","spend":118,"total_spend":180,"colors":"#e6194B","Daily Spend":118,"Date":"2023-05-31","x":1685491200000,"y":118,"fill":"#e6194B"},{"date_produced":"2023-06-01","party":"Drugo","spend":105,"total_spend":180,"colors":"#e6194B","Daily Spend":105,"Date":"2023-06-01","x":1685577600000,"y":105,"fill":"#e6194B"},{"date_produced":"2023-06-02","party":"Drugo","spend":130,"total_spend":180,"colors":"#e6194B","Daily Spend":130,"Date":"2023-06-02","x":1685664000000,"y":130,"fill":"#e6194B"},{"date_produced":"2023-06-03","party":"Drugo","spend":127,"total_spend":180,"colors":"#e6194B","Daily Spend":127,"Date":"2023-06-03","x":1685750400000,"y":127,"fill":"#e6194B"},{"date_produced":"2023-06-04","party":"Drugo","spend":122,"total_spend":180,"colors":"#e6194B","Daily Spend":122,"Date":"2023-06-04","x":1685836800000,"y":122,"fill":"#e6194B"},{"date_produced":"2023-06-05","party":"Drugo","spend":180,"total_spend":180,"colors":"#e6194B","Daily Spend":180,"Date":"2023-06-05","x":1685923200000,"y":180,"fill":"#e6194B"},{"date_produced":"2023-06-06","party":"Drugo","spend":162,"total_spend":180,"colors":"#e6194B","Daily Spend":162,"Date":"2023-06-06","x":1686009600000,"y":162,"fill":"#e6194B"}],"type":"area"},{"name":"DPS","data":[{"date_produced":"2023-06-01","party":"DPS","spend":1,"total_spend":257,"colors":"#524fa1","Daily Spend":1,"Date":"2023-06-01","x":1685577600000,"y":1,"fill":"#524fa1"},{"date_produced":"2023-06-02","party":"DPS","spend":141,"total_spend":257,"colors":"#524fa1","Daily Spend":141,"Date":"2023-06-02","x":1685664000000,"y":141,"fill":"#524fa1"},{"date_produced":"2023-06-03","party":"DPS","spend":257,"total_spend":257,"colors":"#524fa1","Daily Spend":257,"Date":"2023-06-03","x":1685750400000,"y":257,"fill":"#524fa1"},{"date_produced":"2023-06-04","party":"DPS","spend":235,"total_spend":257,"colors":"#524fa1","Daily Spend":235,"Date":"2023-06-04","x":1685836800000,"y":235,"fill":"#524fa1"},{"date_produced":"2023-06-05","party":"DPS","spend":113,"total_spend":257,"colors":"#524fa1","Daily Spend":113,"Date":"2023-06-05","x":1685923200000,"y":113,"fill":"#524fa1"},{"date_produced":"2023-06-06","party":"DPS","spend":1,"total_spend":257,"colors":"#524fa1","Daily Spend":1,"Date":"2023-06-06","x":1686009600000,"y":1,"fill":"#524fa1"}],"type":"area"},{"name":"URA","data":[{"date_produced":"2023-05-31","party":"URA","spend":289,"total_spend":756,"colors":"#00FF00","Daily Spend":289,"Date":"2023-05-31","x":1685491200000,"y":289,"fill":"#00FF00"},{"date_produced":"2023-06-01","party":"URA","spend":129,"total_spend":756,"colors":"#00FF00","Daily Spend":129,"Date":"2023-06-01","x":1685577600000,"y":129,"fill":"#00FF00"},{"date_produced":"2023-06-02","party":"URA","spend":207,"total_spend":756,"colors":"#00FF00","Daily Spend":207,"Date":"2023-06-02","x":1685664000000,"y":207,"fill":"#00FF00"},{"date_produced":"2023-06-03","party":"URA","spend":247,"total_spend":756,"colors":"#00FF00","Daily Spend":247,"Date":"2023-06-03","x":1685750400000,"y":247,"fill":"#00FF00"},{"date_produced":"2023-06-04","party":"URA","spend":370,"total_spend":756,"colors":"#00FF00","Daily Spend":370,"Date":"2023-06-04","x":1685836800000,"y":370,"fill":"#00FF00"},{"date_produced":"2023-06-05","party":"URA","spend":688,"total_spend":756,"colors":"#00FF00","Daily Spend":688,"Date":"2023-06-05","x":1685923200000,"y":688,"fill":"#00FF00"},{"date_produced":"2023-06-06","party":"URA","spend":756,"total_spend":756,"colors":"#00FF00","Daily Spend":756,"Date":"2023-06-06","x":1686009600000,"y":756,"fill":"#00FF00"}],"type":"area"},{"name":"ES!","data":[{"date_produced":"2023-05-31","party":"ES!","spend":121,"total_spend":898,"colors":"#f1c851","Daily Spend":121,"Date":"2023-05-31","x":1685491200000,"y":121,"fill":"#f1c851"},{"date_produced":"2023-06-01","party":"ES!","spend":217,"total_spend":898,"colors":"#f1c851","Daily Spend":217,"Date":"2023-06-01","x":1685577600000,"y":217,"fill":"#f1c851"},{"date_produced":"2023-06-02","party":"ES!","spend":266,"total_spend":898,"colors":"#f1c851","Daily Spend":266,"Date":"2023-06-02","x":1685664000000,"y":266,"fill":"#f1c851"},{"date_produced":"2023-06-03","party":"ES!","spend":368,"total_spend":898,"colors":"#f1c851","Daily Spend":368,"Date":"2023-06-03","x":1685750400000,"y":368,"fill":"#f1c851"},{"date_produced":"2023-06-04","party":"ES!","spend":539,"total_spend":898,"colors":"#f1c851","Daily Spend":539,"Date":"2023-06-04","x":1685836800000,"y":539,"fill":"#f1c851"},{"date_produced":"2023-06-05","party":"ES!","spend":656,"total_spend":898,"colors":"#f1c851","Daily Spend":656,"Date":"2023-06-05","x":1685923200000,"y":656,"fill":"#f1c851"},{"date_produced":"2023-06-06","party":"ES!","spend":898,"total_spend":898,"colors":"#f1c851","Daily Spend":898,"Date":"2023-06-06","x":1686009600000,"y":898,"fill":"#f1c851"}],"type":"area"},{"name":"DCG","data":[{"date_produced":"2023-05-31","party":"DCG","spend":812,"total_spend":1596,"colors":"#f5911d","Daily Spend":812,"Date":"2023-05-31","x":1685491200000,"y":812,"fill":"#f5911d"},{"date_produced":"2023-06-01","party":"DCG","spend":1101,"total_spend":1596,"colors":"#f5911d","Daily Spend":1101,"Date":"2023-06-01","x":1685577600000,"y":1101,"fill":"#f5911d"},{"date_produced":"2023-06-02","party":"DCG","spend":1596,"total_spend":1596,"colors":"#f5911d","Daily Spend":1596,"Date":"2023-06-02","x":1685664000000,"y":1596,"fill":"#f5911d"},{"date_produced":"2023-06-03","party":"DCG","spend":854,"total_spend":1596,"colors":"#f5911d","Daily Spend":854,"Date":"2023-06-03","x":1685750400000,"y":854,"fill":"#f5911d"},{"date_produced":"2023-06-04","party":"DCG","spend":732,"total_spend":1596,"colors":"#f5911d","Daily Spend":732,"Date":"2023-06-04","x":1685836800000,"y":732,"fill":"#f5911d"},{"date_produced":"2023-06-05","party":"DCG","spend":831,"total_spend":1596,"colors":"#f5911d","Daily Spend":831,"Date":"2023-06-05","x":1685923200000,"y":831,"fill":"#f5911d"},{"date_produced":"2023-06-06","party":"DCG","spend":1173,"total_spend":1596,"colors":"#f5911d","Daily Spend":1173,"Date":"2023-06-06","x":1686009600000,"y":1173,"fill":"#f5911d"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"Date"},"categories":null},"colors":["#89cff0","#9A6324","#fffac8","#800000","#f04949","#ff1a1a","#6495ed","#00008b","#e6194B","#524fa1","#00FF00","#f1c851","#f5911d"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>In total, political parties spend €32,456 and ran 649 ad copies on Meta in this timeframe.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="kdtbktqfnr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html {
+  font-family: Chivo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#kdtbktqfnr) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#kdtbktqfnr) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#kdtbktqfnr) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#kdtbktqfnr) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#kdtbktqfnr) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#kdtbktqfnr) .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#kdtbktqfnr) .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#kdtbktqfnr) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#kdtbktqfnr) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#kdtbktqfnr) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#kdtbktqfnr) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#kdtbktqfnr) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#kdtbktqfnr) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+:where(#kdtbktqfnr) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+:where(#kdtbktqfnr) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#kdtbktqfnr) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#kdtbktqfnr) .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#kdtbktqfnr) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#kdtbktqfnr) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#kdtbktqfnr) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#kdtbktqfnr) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#kdtbktqfnr) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#kdtbktqfnr) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#kdtbktqfnr) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#kdtbktqfnr) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#kdtbktqfnr) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#kdtbktqfnr) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#kdtbktqfnr) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#kdtbktqfnr) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#kdtbktqfnr) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#kdtbktqfnr) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#kdtbktqfnr) .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#kdtbktqfnr) .gt_left {
+  text-align: left;
+}
+
+:where(#kdtbktqfnr) .gt_center {
+  text-align: center;
+}
+
+:where(#kdtbktqfnr) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#kdtbktqfnr) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#kdtbktqfnr) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#kdtbktqfnr) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#kdtbktqfnr) .gt_super {
+  font-size: 65%;
+}
+
+:where(#kdtbktqfnr) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#kdtbktqfnr) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#kdtbktqfnr) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#kdtbktqfnr) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#kdtbktqfnr) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#kdtbktqfnr) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#kdtbktqfnr) .gt_indent_5 {
+  text-indent: 25px;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>DCG</p>
+</div></th>
+<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #f5911d;"><div class="gt_from_md"><p>4</p>
+</div></td>
+<td headers="stub_1_1 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Aleksa Becic - Demokrate - Demokratska Crna Gora (€12,583)<br>2. Vladimir Martinović (€154)<br>3. Stevan Katić - Demokrate Herceg Novi (€100)</p>
+</div></td>
+<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>124</p>
+</div></td>
+<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€12,937</p>
+</div></td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>URA</p>
+</div></th>
+<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: green;"><div class="gt_from_md"><p>5</p>
+</div></td>
+<td headers="stub_1_2 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Građanski pokret URA (€4,759)<br>2. Dritan Abazović (€1,519)<br>3. Luka Rakčević (€239)</p>
+</div></td>
+<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>169</p>
+</div></td>
+<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€6,773</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>ES!</p>
+</div></th>
+<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #f1c851;"><div class="gt_from_md"><p>2</p>
+</div></td>
+<td headers="stub_1_3 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Milojko Spajić (€2,370)<br>2. Pokret Evropa sad (€1,986)</p>
+</div></td>
+<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>41</p>
+</div></td>
+<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€4,356</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Drugo</p>
+</div></th>
+<td headers="stub_1_4 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #e6194B;"><div class="gt_from_md"><p>7</p>
+</div></td>
+<td headers="stub_1_4 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Nik Gjeloshaj (€1,519)<br>2. Nihad Canović (€105)<br>3. Ammar Borančić (€100)</p>
+</div></td>
+<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>45</p>
+</div></td>
+<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€2,124</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>SDP</p>
+</div></th>
+<td headers="stub_1_5 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ff1a1a;"><div class="gt_from_md"><p>3</p>
+</div></td>
+<td headers="stub_1_5 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Socijaldemokratska partija Crne Gore - SDP (€1,074)<br>2. Nikola Đurašković (€392)<br>3. Forum mladih SDP Crne Gore (€100)</p>
+</div></td>
+<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>70</p>
+</div></td>
+<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€1,566</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>DF</p>
+</div></th>
+<td headers="stub_1_6 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #00008b;"><div class="gt_from_md"><p>4</p>
+</div></td>
+<td headers="stub_1_6 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Pokret za Promjene (€1,058)<br>2. Vladislav Dajković (€285)<br>3. Андрија Мандић - Andrija Mandić (€100)</p>
+</div></td>
+<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>55</p>
+</div></td>
+<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€1,543</p>
+</div></td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>DPS</p>
+</div></th>
+<td headers="stub_1_7 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #524fa1;"><div class="gt_from_md"><p>1</p>
+</div></td>
+<td headers="stub_1_7 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Demokratska partija socijalista Crne Gore (€908)</p>
+</div></td>
+<td headers="stub_1_7 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>8</p>
+</div></td>
+<td headers="stub_1_7 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€908</p>
+</div></td></tr>
+    <tr><th id="stub_1_8" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>SD</p>
+</div></th>
+<td headers="stub_1_8 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #f04949;"><div class="gt_from_md"><p>4</p>
+</div></td>
+<td headers="stub_1_8 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Socijaldemokrate Crne Gore (€563)<br>2. SDP i Građani - Svim srcem za Cetinje (€121)<br>3. Ismar Ćorović (€100)</p>
+</div></td>
+<td headers="stub_1_8 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>30</p>
+</div></td>
+<td headers="stub_1_8 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€884</p>
+</div></td></tr>
+    <tr><th id="stub_1_9" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Prava Crna Gora</p>
+</div></th>
+<td headers="stub_1_9 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #800000;"><div class="gt_from_md"><p>2</p>
+</div></td>
+<td headers="stub_1_9 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Marko Milačić - Prava Crna Gora (€536)<br>2. Pokret za Pljevlja - Prava Crna Gora (€100)</p>
+</div></td>
+<td headers="stub_1_9 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>51</p>
+</div></td>
+<td headers="stub_1_9 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€636</p>
+</div></td></tr>
+    <tr><th id="stub_1_10" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>HGI</p>
+</div></th>
+<td headers="stub_1_10 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #9A6324;"><div class="gt_from_md"><p>1</p>
+</div></td>
+<td headers="stub_1_10 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Hrvatska građanska inicijativa (€350)</p>
+</div></td>
+<td headers="stub_1_10 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>25</p>
+</div></td>
+<td headers="stub_1_10 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€350</p>
+</div></td></tr>
+    <tr><th id="stub_1_11" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>SNP</p>
+</div></th>
+<td headers="stub_1_11 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #6495ed;"><div class="gt_from_md"><p>1</p>
+</div></td>
+<td headers="stub_1_11 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. SNP BUDVA (€179)</p>
+</div></td>
+<td headers="stub_1_11 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>15</p>
+</div></td>
+<td headers="stub_1_11 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€179</p>
+</div></td></tr>
+    <tr><th id="stub_1_12" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Demos</p>
+</div></th>
+<td headers="stub_1_12 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #89cff0;"><div class="gt_from_md"><p>1</p>
+</div></td>
+<td headers="stub_1_12 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. DEMOS - Miodrag Lekić (€100)</p>
+</div></td>
+<td headers="stub_1_12 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>10</p>
+</div></td>
+<td headers="stub_1_12 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€100</p>
+</div></td></tr>
+    <tr><th id="stub_1_13" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>LP</p>
+</div></th>
+<td headers="stub_1_13 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #fffac8;"><div class="gt_from_md"><p>1</p>
+</div></td>
+<td headers="stub_1_13 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Liberalna partija Crne Gore - LPCG (€100)</p>
+</div></td>
+<td headers="stub_1_13 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>6</p>
+</div></td>
+<td headers="stub_1_13 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€100</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>In total, political parties spend €18,354 and ran 378 ad copies on Meta in this timeframe.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="ittsmvrzej" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html {
+  font-family: Chivo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#ittsmvrzej) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#ittsmvrzej) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#ittsmvrzej) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#ittsmvrzej) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#ittsmvrzej) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#ittsmvrzej) .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#ittsmvrzej) .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#ittsmvrzej) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#ittsmvrzej) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#ittsmvrzej) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#ittsmvrzej) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#ittsmvrzej) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#ittsmvrzej) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+:where(#ittsmvrzej) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+:where(#ittsmvrzej) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#ittsmvrzej) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#ittsmvrzej) .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#ittsmvrzej) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#ittsmvrzej) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#ittsmvrzej) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#ittsmvrzej) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#ittsmvrzej) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#ittsmvrzej) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#ittsmvrzej) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#ittsmvrzej) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#ittsmvrzej) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#ittsmvrzej) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#ittsmvrzej) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#ittsmvrzej) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#ittsmvrzej) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#ittsmvrzej) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#ittsmvrzej) .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#ittsmvrzej) .gt_left {
+  text-align: left;
+}
+
+:where(#ittsmvrzej) .gt_center {
+  text-align: center;
+}
+
+:where(#ittsmvrzej) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#ittsmvrzej) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#ittsmvrzej) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#ittsmvrzej) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#ittsmvrzej) .gt_super {
+  font-size: 65%;
+}
+
+:where(#ittsmvrzej) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#ittsmvrzej) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#ittsmvrzej) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#ittsmvrzej) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#ittsmvrzej) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#ittsmvrzej) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#ittsmvrzej) .gt_indent_5 {
+  text-indent: 25px;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>DCG</p>
+</div></th>
+<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #f5911d;"><div class="gt_from_md"><p>4</p>
+</div></td>
+<td headers="stub_1_1 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Aleksa Becic - Demokrate - Demokratska Crna Gora (€7,085)<br>2. Stevan Katić - Demokrate Herceg Novi (€100)<br>3. Demokrate Nikšić (€100)</p>
+</div></td>
+<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>68</p>
+</div></td>
+<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€7,385</p>
+</div></td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>URA</p>
+</div></th>
+<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: green;"><div class="gt_from_md"><p>4</p>
+</div></td>
+<td headers="stub_1_2 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Građanski pokret URA (€1,983)<br>2. Dritan Abazović (€1,069)<br>3. Omer Bajraktari (€156)</p>
+</div></td>
+<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>92</p>
+</div></td>
+<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€3,308</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>ES!</p>
+</div></th>
+<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #f1c851;"><div class="gt_from_md"><p>2</p>
+</div></td>
+<td headers="stub_1_3 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Pokret Evropa sad (€1,886)<br>2. Milojko Spajić (€1,231)</p>
+</div></td>
+<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>35</p>
+</div></td>
+<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€3,117</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Drugo</p>
+</div></th>
+<td headers="stub_1_4 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #e6194B;"><div class="gt_from_md"><p>4</p>
+</div></td>
+<td headers="stub_1_4 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Nik Gjeloshaj (€938)<br>2. Ammar Borančić (€100)<br>3. Nihad Canović (€100)</p>
+</div></td>
+<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>24</p>
+</div></td>
+<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€1,238</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>DPS</p>
+</div></th>
+<td headers="stub_1_5 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #524fa1;"><div class="gt_from_md"><p>1</p>
+</div></td>
+<td headers="stub_1_5 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Demokratska partija socijalista Crne Gore (€908)</p>
+</div></td>
+<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>8</p>
+</div></td>
+<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€908</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>DF</p>
+</div></th>
+<td headers="stub_1_6 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #00008b;"><div class="gt_from_md"><p>2</p>
+</div></td>
+<td headers="stub_1_6 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Pokret za Promjene (€528)<br>2. Vladislav Dajković (€125)</p>
+</div></td>
+<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>25</p>
+</div></td>
+<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€653</p>
+</div></td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>SD</p>
+</div></th>
+<td headers="stub_1_7 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #f04949;"><div class="gt_from_md"><p>3</p>
+</div></td>
+<td headers="stub_1_7 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Socijaldemokrate Crne Gore (€258)<br>2. SDP i Građani - Svim srcem za Cetinje (€113)<br>3. Ismar Ćorović (€100)</p>
+</div></td>
+<td headers="stub_1_7 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>19</p>
+</div></td>
+<td headers="stub_1_7 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€471</p>
+</div></td></tr>
+    <tr><th id="stub_1_8" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Prava Crna Gora</p>
+</div></th>
+<td headers="stub_1_8 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #800000;"><div class="gt_from_md"><p>2</p>
+</div></td>
+<td headers="stub_1_8 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Marko Milačić - Prava Crna Gora (€316)<br>2. Pokret za Pljevlja - Prava Crna Gora (€100)</p>
+</div></td>
+<td headers="stub_1_8 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>36</p>
+</div></td>
+<td headers="stub_1_8 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€416</p>
+</div></td></tr>
+    <tr><th id="stub_1_9" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>SDP</p>
+</div></th>
+<td headers="stub_1_9 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ff1a1a;"><div class="gt_from_md"><p>2</p>
+</div></td>
+<td headers="stub_1_9 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Socijaldemokratska partija Crne Gore - SDP (€212)<br>2. Nikola Đurašković (€145)</p>
+</div></td>
+<td headers="stub_1_9 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>32</p>
+</div></td>
+<td headers="stub_1_9 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€357</p>
+</div></td></tr>
+    <tr><th id="stub_1_10" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>SNP</p>
+</div></th>
+<td headers="stub_1_10 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #6495ed;"><div class="gt_from_md"><p>1</p>
+</div></td>
+<td headers="stub_1_10 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. SNP BUDVA (€179)</p>
+</div></td>
+<td headers="stub_1_10 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>15</p>
+</div></td>
+<td headers="stub_1_10 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€179</p>
+</div></td></tr>
+    <tr><th id="stub_1_11" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>HGI</p>
+</div></th>
+<td headers="stub_1_11 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #9A6324;"><div class="gt_from_md"><p>1</p>
+</div></td>
+<td headers="stub_1_11 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Hrvatska građanska inicijativa (€122)</p>
+</div></td>
+<td headers="stub_1_11 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>15</p>
+</div></td>
+<td headers="stub_1_11 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€122</p>
+</div></td></tr>
+    <tr><th id="stub_1_12" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Demos</p>
+</div></th>
+<td headers="stub_1_12 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #89cff0;"><div class="gt_from_md"><p>1</p>
+</div></td>
+<td headers="stub_1_12 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. DEMOS - Miodrag Lekić (€100)</p>
+</div></td>
+<td headers="stub_1_12 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>7</p>
+</div></td>
+<td headers="stub_1_12 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€100</p>
+</div></td></tr>
+    <tr><th id="stub_1_13" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>LP</p>
+</div></th>
+<td headers="stub_1_13 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #fffac8;"><div class="gt_from_md"><p>1</p>
+</div></td>
+<td headers="stub_1_13 Top Spenders" class="gt_row gt_center"><div class="gt_from_md"><p><br>1. Liberalna partija Crne Gore - LPCG (€100)</p>
+</div></td>
+<td headers="stub_1_13 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>2</p>
+</div></td>
+<td headers="stub_1_13 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€100</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
