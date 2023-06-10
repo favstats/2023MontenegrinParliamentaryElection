@@ -2,7 +2,7 @@
 title: "2023 Montenegrin legislative election"
 format:
   html:
-    theme: journal
+    theme: lumen
 ---
 
 <style>
@@ -10,6 +10,7 @@ format:
         max-width: 1920px !important;
     }
 </style>
+
 
 
 ```{r setup, include=FALSE}

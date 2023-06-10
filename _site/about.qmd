@@ -2,7 +2,7 @@
 title: "About"
 format:
   html:
-    theme: journal
+    theme: lumen
 ---
 
 This dashboard is still a work in progress that we plan to regularly update and improve during the Dutch election. Please check out this [blog post](https://politieke-advertenties.nl/waar-komen-onze-data-vandaan/) for more detailed explanations of the metrics shown here.
