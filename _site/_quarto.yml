@@ -3,11 +3,12 @@ project:
   output-dir: ../docs
 
 website:
-  title: "2023 Montenegrin legislative election"
+  title: "2023 Montenegrin Election Dashboard"
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: Spending
+      - impressions.qmd
       - about.qmd
     right:
       - icon: github
