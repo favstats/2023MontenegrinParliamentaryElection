@@ -141,7 +141,9 @@ all_dat <- wtm_data %>%
 
 all_dat %>% count(party, sort = T)
 all_dat %>% nrow
-# 
+
+write_lines(all_dat %>% count(page_id, sort = T) %>% nrow, "n_advertisers.txt")
+
 # all_dat %>% filter(source == "new") %>% View
 # 
 # more_data %>% 

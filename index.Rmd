@@ -16,6 +16,10 @@ output:
 
 
 ```{r setup, include=FALSE}
+election_title <- "2023 Montenegrin legislative election"
+the_country <- "Montenegro"
+
+
 ## Global options
 knitr::opts_chunk$set(
     cache = F, 
@@ -35,7 +39,6 @@ library(gt)
 
 options(scipen = 999)
 
-library(tidyverse)
 
 ```
 
@@ -47,22 +50,7 @@ color_dat <- tibble(
   party = c("Drugo", "DCG", "DF", "URA", "DPS", "SDP", "ES!", "SD", "SNP", "UCG", "Vlada Crne Gore", "Demos", "HGI", "LP", "Prava Crna Gora"))
 
 
-
-scale_fill_parties <- function(...){
-    ggplot2:::manual_scale(
-        'fill', 
-        values = setNames(color_dat$colors, color_dat$party), 
-        ...
-    )
-}
-scale_color_parties <- function(...){
-    ggplot2:::manual_scale(
-        'color', 
-        values = setNames(color_dat$colors, color_dat$party), 
-        ...
-    )
-}
-
+source("utils.R")
 ```
 
 
@@ -110,32 +98,22 @@ fin <- (as.Date(election_dat30$ds[1])-lubridate::days(1))
 begin7 <- fin-lubridate::days(6)
 begin30 <- fin-lubridate::days(29)
 
-append_date_suffix <- function(dates){
-  dayy <- lubridate::day(dates)
-  suff <- case_when(dayy %in% c(11,12,13) ~ "th",
-                    dayy %% 10 == 1 ~ 'st',
-                    dayy %% 10 == 2 ~ 'nd',
-                    dayy %% 10 == 3 ~'rd',
-                    TRUE ~ "th")
-  paste0(dayy, suff)
-}
-
-create_date <- function(x) {
-    the_date <- format(x, "%b %d")
-    the_date <- ifelse(str_detect(the_date, " 0"),
-           str_remove(the_date, "0"),
-           the_date)
-    str_replace(the_date, 
-                as.character(lubridate::day(x)), 
-                append_date_suffix(x))
-}
-
-
 
 last7days_string <- paste0(create_date(begin7), " - ", paste(create_date(fin), lubridate::year(fin)))
 last30days_string <- paste0(create_date(begin30), " - ", paste(create_date(fin), lubridate::year(fin)))
 
-source("utils.R")
+
+the_currency <- election_dat30 %>% 
+  count(main_currency, sort = T) %>% 
+  slice(1) %>% 
+  pull(main_currency)
+
+if(the_currency == "EUR"){
+  currency_symbol <- "€"
+} else {
+  currency_symbol <- "CURRENCY"
+}
+
 ```
 
 
@@ -143,16 +121,38 @@ source("utils.R")
 
 ### Methodology
 
-In collaboration with [Who Targets Me](https://whotargets.me/), we monitored over 300 political advertisers in Montenegro during the 2023 Montenegrin parliamantary election to better understand how campaigns use different targeting methods made available by Meta. To do this, we used data from the [Meta Ad Library](https://www.facebook.com/ads/library/), using the new 'Audience' data which gives some detail on how pages target their ads. 
+In collaboration with [Who Targets Me](https://whotargets.me/), we monitored `r `read_lines("n_advertisers.txt")` political advertisers in `r the_country` during the `r election_title`` to better understand how campaigns use different targeting methods made available by Meta. To do this, we used data from the [Meta Ad Library](https://www.facebook.com/ads/library/), using the new 'Audience' data which gives some detail on how pages target their ads. 
 
 To better understand the election, we kept only advertisers who:
 
 1. Advertised in the last 7 days (`r last7days_string`)
 2. Advertised in the last 30 days (`r last30days_string`)
 
-> Note: Meta only provides 7, 30 and 90 days windows for the targeting data in their Ad Library. Meta's data also lags by a few days. We will update this report as soon as new data is available.
+> Note: Meta only provides 7, 30 and 90 days windows for the targeting data in their Ad Library. Meta's data also lags by a few days. Report will be updated as soon as new data is available.
 
-We also include spending data from the [Google Transparency Report](https://transparencyreport.google.com/political-ads/region/GR), however the data on targeting criteria reported here exclusively refers to Meta platforms.
+### Election Targeting Dashboards
+
+A list of election dashboards:
+
++ `r emo::ji("netherlands")` [2021 Dutch parliamentary election](https://favstats.github.io/DutchElectionObservatory/en/index.html) (15th-17th March 2021)
++ `r emo::ji("de")` [2021 German federal election](https://favstats.shinyapps.io/btw21_wtm) (26 September 2021)
++ `r emo::ji("sweden")` [2022 Swedish general election](https://favstats.github.io/SwedishElection2022/) (11th September 2022)
++ `r emo::ji("us")` [2022 United States midterm elections](https://whotargetsme.shinyapps.io/midterms2022/) (8th November 2022)
++ `r emo::ji("us")` [2022 United States midterm elections - Georgia Runoff](https://whotargetsme.github.io/midterms2022_dashboard/) (6th December 2022)
++ `r emo::ji("it")` [2023 Lazio & Lombardy regional election](https://favstats.github.io/regionali2023/) (12-13th February 2023)
++ `r emo::ji("estonia")` [2023 Estonian parliamentary election](https://favstats.github.io/EstoniaElection2023/) (5th March 2023)
++ `r emo::ji("netherlands")` [2023 Dutch provincial elections](https://favstats.github.io/ProvincialeStatenverkiezingen2023/) (15th March 2023)
++ `r emo::ji("montenegro")` [2023 Montenegrin presidential elections](https://refined-github-html-preview.kidonng.workers.dev/favstats/MontenegroPresidentialElection2023/raw/dc4d9baafe3f30b7d79e45206f63c745f51a25b3/index.html) (19th March 2023) - 1st round
++ `r emo::ji("australia")` [2023 New South Wales state election](https://favstats.github.io/NSWAustralianElection2023/) (25th March 2023)
++ `r emo::ji("finland")` [2023 Finnish parliamentary election](https://favstats.github.io/FinlandElections2023/) (2 April 2023)
++ `r emo::ji("tr")` [2023 Turkish general election](https://refined-github-html-preview.kidonng.workers.dev/favstats/TurkishElection2023/raw/ce6281fe74b8f5a3f99c576c31bd95758cf80dec/index.html) (14 May 2023) - Round 1
++ `r emo::ji("de")` [2023 Bremen State election](https://favstats.github.io/BremenStateElection2023/) (14 May 2023)
++ `r emo::ji("greece")` [2023 Greek Legislative election](https://favstats.github.io/BremenStateElection2023/) (21 May 2023)
++ `r emo::ji("tr")` [2023 Turkish Presidential election](https://favstats.github.io/TurkishElection2023/) (14 May 2023) - Round 2
++ `r emo::ji("montenegro")` [Montenegrin parliamentary elections, 2023](https://favstats.github.io/2023MontenegrinParliamentaryElection/) (11 June 2023)
+
+
+
 
 ### About Us
 
@@ -172,7 +172,7 @@ cards <- function(title, text, link, image) {
 }
 
 div(class = "row",
-    div(class = "col-sm-6 col-md-4",
+    div(class = "col-sm-4 col-md-4",
         cards(
           "Fabio Votta",
           "Ph.D. candidate in Political Communication at the University of Amsterdam who studies (online) political microtargeting and its usage around the world.",
@@ -180,7 +180,7 @@ div(class = "row",
           "https://www.uva.nl/binaries/_ht_1677599571673/cardmedium/content/gallery/personen/v/o/fabio-votta.jpg"
         )
     ),
-    div(class = "col-sm-6 col-md-4",
+    div(class = "col-sm-4 col-md-4",
         cards(
           "Who Targets Me",
           "Grassroots activist group advocating for transparency in the digital age by monitoring political adverts on social media and their impact on democracy.",
@@ -193,12 +193,14 @@ div(class = "row",
 ```
 
 
+
+
 ## Topline Statistics  {.tabset .tabset-fade .tabset-pills}
 
 ```{r}
 
 total_spend_id <- election_dat30 %>% 
-    filter(main_currency == "EUR") %>% 
+    filter(main_currency == the_currency) %>% 
   distinct(internal_id, .keep_all = T) %>% 
   group_by(party) %>% 
   summarize(total_spend_formatted = sum(total_spend_formatted)) %>% 
@@ -209,13 +211,13 @@ total_spend_id <- election_dat30 %>%
 
 ```{r}
 sum30 <- election_dat30 %>% 
-    filter(main_currency == "EUR") %>% 
+    filter(main_currency == the_currency) %>% 
     distinct(internal_id, .keep_all = T) %>% 
     summarize(total_spend_formatted = sum(total_spend_formatted),
               total_num_ads = sum(total_num_ads))
 
 sum7 <- election_dat7 %>% 
-    filter(main_currency == "EUR") %>% 
+    filter(main_currency == the_currency) %>% 
     distinct(internal_id, .keep_all = T) %>% 
     summarize(total_spend_formatted = sum(total_spend_formatted),
               total_num_ads = sum(total_num_ads))
@@ -254,9 +256,7 @@ add_ribbons2 <- function(x, adv, col) {
 ```
 
 
-### Meta {.tabset .tabset-fade .tabset-pills}
-
-#### Daily Spend
+### Daily Spend
 
 
 
@@ -401,10 +401,10 @@ hc_data %>%
 
 
 
-#### `r last30days_string` (Last 30 days)
+### `r last30days_string` (Last 30 days)
 
 
-In total, political parties spend €`r scales::comma_format()(sum30$total_spend_formatted)` and ran `r sum30$total_num_ads` ad copies on Meta in this timeframe.
+In total, political parties spend `r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted))` and ran `r sum30$total_num_ads` ad copies on Meta in this timeframe.
 
 
 ```{r}
@@ -413,29 +413,28 @@ get_table_dat <- function(x, var) {
     
 
 x %>% 
-    filter(main_currency == "EUR") %>% 
+    filter(main_currency == the_currency) %>% 
         distinct(internal_id, .keep_all = T) %>% 
     group_by({{ var }}) %>% 
     summarize(total_num_ads = n()) %>% 
     drop_na() %>% 
     mutate(total_num_ads = scales::comma(total_num_ads)) %>%
     pivot_wider(names_from = {{ var }}, values_from = total_num_ads) %>% 
-    mutate(`Coalizione/Partito` = "Number of Advertisers") %>% 
+    mutate(`party_col` = "Number of Advertisers") %>% 
     bind_rows(x %>% 
-    filter(main_currency == "EUR") %>% 
+    filter(main_currency == the_currency) %>% 
         distinct(internal_id, .keep_all = T) %>% 
         group_by({{ var }}) %>% 
         arrange(desc(total_spend_formatted)) %>% 
         slice(1:3) %>% 
         mutate(total_spend_formatted = scales::comma(total_spend_formatted)) %>%
         mutate(n_words = str_count(page_name, " ")) %>% 
-        # mutate(lab = paste0(word(str_remove(page_name, "-"), 1,ifelse(n_words>=2, 3, 2), sep=" "), "<br>(€", total_spend_formatted, ")")) %>% 
-        mutate(lab = paste0(page_name, " (€", total_spend_formatted, ")")) %>%
+        mutate(lab = paste0(page_name, " (",currency_symbol, total_spend_formatted, ")")) %>%
         select({{ var }}, lab) %>% 
         drop_na() %>% 
         summarize(lab = paste0("<br>", 1:n(), ". ", lab, collapse = "")) %>% 
         pivot_wider(names_from = {{ var }}, values_from = lab) %>% 
-        mutate(`Coalizione/Partito` = "Top Spenders"))  %>% 
+        mutate(`party_col` = "Top Spenders"))  %>% 
     bind_rows(
         x %>% 
             distinct(internal_id, .keep_all = T) %>% 
@@ -444,20 +443,20 @@ x %>%
             drop_na() %>% 
             mutate(total_num_ads = scales::comma(total_num_ads)) %>% 
             pivot_wider(names_from = {{ var }}, values_from = total_num_ads) %>% 
-            mutate(`Coalizione/Partito` = "Number of Ads")) %>% 
+            mutate(`party_col` = "Number of Ads")) %>% 
     bind_rows(
         x %>% 
             distinct(internal_id, .keep_all = T) %>% 
             group_by({{ var }}) %>% 
             summarize(total_spend_formatted = sum(total_spend_formatted)) %>% 
             mutate(total_spend_formatted = scales::comma(total_spend_formatted)) %>% 
-        mutate(total_spend_formatted = paste0("€", total_spend_formatted)) %>% 
+        mutate(total_spend_formatted = paste0(currency_symbol, total_spend_formatted)) %>% 
             drop_na() %>% 
             pivot_wider(names_from = {{ var }}, values_from = total_spend_formatted) %>% 
-            mutate(`Coalizione/Partito` = "Total Spend") ) %>% 
+            mutate(`party_col` = "Total Spend") ) %>% 
     t() %>% 
     as.data.frame() %>% 
-    rownames_to_column("Coalizione/Partito") %>% 
+    rownames_to_column("party_col") %>% 
     set_names(.[nrow(.),] %>% as.character()) %>% 
     slice(1:(n()-1)) 
     
@@ -467,7 +466,7 @@ x %>%
 get_table_dat(election_dat30, party) %>% 
   arrange(desc(parse_number(`Total Spend`))) %>% 
   gt(
-    rowname_col = "Coalizione/Partito"
+    rowname_col = "party_col"
     # groupname_col = "group"
   ) %>% 
   fmt_markdown(columns = everything())  %>% 
@@ -498,9 +497,9 @@ add_ribbons("Prava Crna Gora", "#800000")
 
 
 
-#### `r last7days_string` (Last 7 days)
+### `r last7days_string` (Last 7 days)
 
-In total, political parties spend €`r scales::comma_format()(sum7$total_spend_formatted)` and ran `r sum7$total_num_ads` ad copies on Meta in this timeframe.
+In total, political parties spend `r paste0(currency_symbol,scales::comma_format()(sum7$total_spend_formatted))` and ran `r sum7$total_num_ads` ad copies on Meta in this timeframe.
 
 
 
@@ -509,7 +508,7 @@ In total, political parties spend €`r scales::comma_format()(sum7$total_spend_
 get_table_dat(election_dat7, party) %>% 
   arrange(desc(parse_number(`Total Spend`))) %>% 
   gt(
-    rowname_col = "Coalizione/Partito"
+    rowname_col = "party_col"
     # groupname_col = "group"
   ) %>% 
   fmt_markdown(columns = everything())  %>% 
@@ -554,7 +553,7 @@ How much did campaigns spend on different targeting methods? The graphs below sh
 ```{r, fig.width=8, fig.height=5, dpi=300}
 coltototal30 <- election_dat30 %>% 
     mutate(total_spend = total_spend_formatted) %>% 
-    filter(main_currency == "EUR") %>% 
+    filter(main_currency == the_currency) %>% 
         calc_targeting() 
 
 gg <- coltototal30 %>% 
@@ -620,7 +619,7 @@ gg %>%
 
 col_each30 <- election_dat30 %>% 
     mutate(total_spend = total_spend_formatted) %>% 
-    filter(main_currency == "EUR") %>% 
+    filter(main_currency == the_currency) %>% 
     group_split(party) %>% 
     map_dfr(~{
         calc_targeting(.x) %>% 
@@ -701,7 +700,7 @@ plot_geography(col_each30) +
 ```{r, fig.width=8, fig.height=5, dpi=300}
 coltototal7 <- election_dat7 %>% 
     mutate(total_spend = total_spend_formatted) %>% 
-    filter(main_currency == "EUR") %>% 
+    filter(main_currency == the_currency) %>% 
         calc_targeting() 
 
 gg <- coltototal7 %>% 
@@ -765,7 +764,7 @@ gg %>%
 
 col_each7 <- election_dat7 %>% 
     mutate(total_spend = total_spend_formatted) %>% 
-    filter(main_currency == "EUR") %>% 
+    filter(main_currency == the_currency) %>% 
     group_split(party) %>% 
     map_dfr(~{
         calc_targeting(.x) %>% 
@@ -791,7 +790,7 @@ interest_targeting30 <-  election_dat30 %>%
     # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
     mutate(total_spend = ifelse(total_spend == 50, 1, total_spend)) %>%
     mutate(total_spend = total_spend * total_spend_pct) %>%
-    filter(main_currency == "EUR")  %>%
+    filter(main_currency == the_currency)  %>%
     # left_join(page_names %>% select(internal_id = page_id, page_name) %>% distinct(internal_id, .keep_all =T)) %>%
     # left_join(us_advertisers %>% rename(internal_id = page_id)) %>%
     # drop_na(left_vs_right) %>%
@@ -826,7 +825,7 @@ interest_targeting7 <-  election_dat7 %>%
     # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
     mutate(total_spend = ifelse(total_spend == 50, 1, total_spend)) %>%
     mutate(total_spend = total_spend * total_spend_pct) %>%
-    filter(main_currency == "EUR")  %>%
+    filter(main_currency == the_currency)  %>%
     # left_join(page_names %>% select(internal_id = page_id, page_name) %>% distinct(internal_id, .keep_all =T)) %>%
     # left_join(us_advertisers %>% rename(internal_id = page_id)) %>%
     # drop_na(left_vs_right) %>%
@@ -954,7 +953,7 @@ interest_targeting <-  ppp %>%
     # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
     mutate(total_spend = ifelse(total_spend == 50, 1, total_spend)) %>%
     mutate(total_spend = total_spend * total_spend_pct) %>%
-    filter(main_currency == "EUR")  %>%
+    filter(main_currency == the_currency)  %>%
     # left_join(page_names %>% select(internal_id = page_id, page_name) %>% distinct(internal_id, .keep_all =T)) %>%
     # left_join(us_advertisers %>% rename(internal_id = page_id)) %>%
     # drop_na(left_vs_right) %>%
@@ -986,7 +985,7 @@ the_order <- contested_dat %>%
 lab_dat <- contested_dat %>% 
   # distinct(value, .keep_all = T) %>% 
   filter(party == "SDP") %>% 
-  mutate(labb = paste0("€", scales::comma(round(total_spenderino)))) %>% 
+  mutate(labb = paste0(currency_symbol, scales::comma(round(total_spenderino)))) %>% 
   select(party, value, labb)
 
 

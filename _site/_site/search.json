@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Untitled",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "index.html#running-code",
+    "href": "index.html#running-code",
+    "title": "Untitled",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "There are four main questions that we are trying to tackle with our current version of the dashboard:\n\nHow many ads are the Dutch political parties placing on the platforms that we look at?\nHow much money are the parties spending on each platform?\nHow many people are reached through these ads?\nHow are the political ads targeted towards individuals?\n\n\nDisclaimer: the data shown in this dashboard is based on the platform’s respective ad libraries. For this reason the data shown here might not reflect the full picture nor all political ads that were targeted at voters.\n\nVisit politieke-advertenties.nl for more info (Website is in Dutch).\n\n\n\n\n\nWant to see how political parties target you? Sign up with our partners at Who Targets Me and download the gratis browser plugin to see how parties on Facebook use your data:\nhttps://whotargets.me/"
+  }
+]

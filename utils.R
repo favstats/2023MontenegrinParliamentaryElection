@@ -257,4 +257,39 @@ get_targeting <- function(id, timeframe = "LAST_30_DAYS") {
 
 get_targeting <- suppressWarnings(get_targeting)
 
+append_date_suffix <- function(dates){
+  dayy <- lubridate::day(dates)
+  suff <- case_when(dayy %in% c(11,12,13) ~ "th",
+                    dayy %% 10 == 1 ~ 'st',
+                    dayy %% 10 == 2 ~ 'nd',
+                    dayy %% 10 == 3 ~'rd',
+                    TRUE ~ "th")
+  paste0(dayy, suff)
+}
+
+create_date <- function(x) {
+  the_date <- format(x, "%b %d")
+  the_date <- ifelse(str_detect(the_date, " 0"),
+                     str_remove(the_date, "0"),
+                     the_date)
+  str_replace(the_date, 
+              as.character(lubridate::day(x)), 
+              append_date_suffix(x))
+}
+
+
+scale_fill_parties <- function(...){
+  ggplot2:::manual_scale(
+    'fill', 
+    values = setNames(color_dat$colors, color_dat$party), 
+    ...
+  )
+}
+scale_color_parties <- function(...){
+  ggplot2:::manual_scale(
+    'color', 
+    values = setNames(color_dat$colors, color_dat$party), 
+    ...
+  )
+}
 
