@@ -13,6 +13,61 @@ format:
 
 
 
+```{r echo=FALSE, results='asis'}
+shiny::HTML('
+<style>
+#overlay {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 10%;
+}
+
+#text {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  font-size: 20px;
+  color: black;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+}
+</style>
+
+<div id="overlay" onclick="off()">
+  <div id="text">
+    <img src="wtm_logo_2020.png" alt="Logo" style="width:100px;height:100px;">
+    <h2>Welcome to the 2023 Montenegrin Election Dashboard</h2>
+    <p>This dashboard aggregates data from the <a href="https://www.facebook.com/ads/library/" target="_blank">Meta Ad Library</a> to show how citizens are targeted during the Montenegrin 2023 Parliamantary election.</p>
+    <p>If you want to know more about Who Targets Me and our work on ad transparency, visit us on <a href="https://www.whotargets.me/" target="_blank">whotargets.me</a>!</p>
+  </div>
+</div>
+
+<script>
+function off() {
+  document.getElementById("overlay").style.display = "none";
+}
+</script>
+')
+
+
+
+```
+
+
 ```{r setup, include=FALSE}
 election_title <- "2023 Montenegrin legislative election"
 the_country <- "Montenegro"
@@ -102,6 +157,10 @@ begin30 <- fin-lubridate::days(29)
 last7days_string <- paste0(create_date(begin7), " - ", paste(create_date(fin), lubridate::year(fin)))
 last30days_string <- paste0(create_date(begin30), " - ", paste(create_date(fin), lubridate::year(fin)))
 
+write_csv(tibble(
+  last30days = last30days_string,
+  last7days = last7days_string,
+), "../data/lastdays.csv")
 
 the_currency <- election_dat30 %>% 
   count(main_currency, sort = T) %>% 
@@ -115,87 +174,6 @@ if(the_currency == "EUR"){
 }
 
 ```
-
-::: {.panel-tabset}
-
-
-### Methodology
-
-
-In collaboration with [Who Targets Me](https://whotargets.me/), we monitored `r read_lines("../n_advertisers.txt")` political advertisers in `r the_country` during the `r election_title` to better understand how campaigns use different targeting methods made available by Meta. To do this, we used data from the [Meta Ad Library](https://www.facebook.com/ads/library/), using the new 'Audience' data which gives some detail on how pages target their ads. 
-
-To better understand the election, we kept only advertisers who:
-
-1. Advertised in the last 7 days (`r last7days_string`)
-2. Advertised in the last 30 days (`r last30days_string`)
-
-> Note: Meta only provides 7, 30 and 90 days windows for the targeting data in their Ad Library. Meta's data also lags by a few days. Report will be updated as soon as new data is available.
-
-
-### Election Targeting Dashboards
-
-A list of election dashboards:
-
-+ `r emo::ji("netherlands")` [2021 Dutch parliamentary election](https://favstats.github.io/DutchElectionObservatory/en/index.html) (15th-17th March 2021)
-+ `r emo::ji("de")` [2021 German federal election](https://favstats.shinyapps.io/btw21_wtm) (26 September 2021)
-+ `r emo::ji("sweden")` [2022 Swedish general election](https://favstats.github.io/SwedishElection2022/) (11th September 2022)
-+ `r emo::ji("us")` [2022 United States midterm elections](https://whotargetsme.shinyapps.io/midterms2022/) (8th November 2022)
-+ `r emo::ji("us")` [2022 United States midterm elections - Georgia Runoff](https://whotargetsme.github.io/midterms2022_dashboard/) (6th December 2022)
-+ `r emo::ji("it")` [2023 Lazio & Lombardy regional election](https://favstats.github.io/regionali2023/) (12-13th February 2023)
-+ `r emo::ji("estonia")` [2023 Estonian parliamentary election](https://favstats.github.io/EstoniaElection2023/) (5th March 2023)
-+ `r emo::ji("netherlands")` [2023 Dutch provincial elections](https://favstats.github.io/ProvincialeStatenverkiezingen2023/) (15th March 2023)
-+ `r emo::ji("montenegro")` [2023 Montenegrin presidential elections](https://refined-github-html-preview.kidonng.workers.dev/favstats/MontenegroPresidentialElection2023/raw/dc4d9baafe3f30b7d79e45206f63c745f51a25b3/index.html) (19th March 2023) - 1st round
-+ `r emo::ji("australia")` [2023 New South Wales state election](https://favstats.github.io/NSWAustralianElection2023/) (25th March 2023)
-+ `r emo::ji("finland")` [2023 Finnish parliamentary election](https://favstats.github.io/FinlandElections2023/) (2 April 2023)
-+ `r emo::ji("tr")` [2023 Turkish general election](https://refined-github-html-preview.kidonng.workers.dev/favstats/TurkishElection2023/raw/ce6281fe74b8f5a3f99c576c31bd95758cf80dec/index.html) (14 May 2023) - Round 1
-+ `r emo::ji("de")` [2023 Bremen State election](https://favstats.github.io/BremenStateElection2023/) (14 May 2023)
-+ `r emo::ji("greece")` [2023 Greek Legislative election](https://favstats.github.io/BremenStateElection2023/) (21 May 2023)
-+ `r emo::ji("tr")` [2023 Turkish Presidential election](https://favstats.github.io/TurkishElection2023/) (14 May 2023) - Round 2
-+ `r emo::ji("montenegro")` [Montenegrin parliamentary elections, 2023](https://favstats.github.io/2023MontenegrinParliamentaryElection/) (11 June 2023)
-
-
-
-
-### About Us
-
-
-```{r, echo=F}
-library(htmltools)
-library(bs4cards)
-
-
-cards <- function(title, text, link, image) {
-  div(class = "card",
-      div(class = "card-body pb-5",
-          h6(class = "card-title mb-0", title)),
-      img(class = "card-img-top", src = image, style="object-fit: cover; height: 200px; width: 100%;"),
-          p(class = "card-text", text),
-          a(href = link, class = "btn btn-primary", "Link"))
-}
-
-div(class = "row",
-    div(class = "col-sm-4 col-md-4",
-        cards(
-          "Fabio Votta",
-          "Ph.D. candidate in Political Communication at the University of Amsterdam who studies (online) political microtargeting and its usage around the world.",
-          "https://twitter.com/favstats",
-          "https://www.uva.nl/binaries/_ht_1677599571673/cardmedium/content/gallery/personen/v/o/fabio-votta.jpg"
-        )
-    ),
-    div(class = "col-sm-4 col-md-4",
-        cards(
-          "Who Targets Me",
-          "Grassroots activist group advocating for transparency in the digital age by monitoring political adverts on social media and their impact on democracy.",
-          "#",
-          "https://whotargets.me/wp-content/uploads/2020/06/wtm_logo_2020.png"
-        )
-    )
-)
-
-```
-
-
-::: 
 
 
 ## Topline Statistics  

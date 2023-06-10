@@ -9,7 +9,8 @@ website:
       - href: index.qmd
         text: Spending
       - impressions.qmd
-      - about.qmd
+      - href: about.qmd
+        text: About
     right:
       - icon: github
         href: https://github.com/favstats
