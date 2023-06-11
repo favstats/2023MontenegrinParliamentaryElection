@@ -519,7 +519,7 @@ generate_plots <- function(data) {
              the_color <- color_dat$colors[color_dat$party == .x$party[1]]
         hchart(.x, type = "bar", hcaes(x = value, y = perc), color = the_color) %>%
             hc_plotOptions(bar = list(horizontal = TRUE, stacking = "normal")) %>%
-            hc_yAxis(title = list(text = "% Party Budget spent on targeting method (in Euro)"))%>%
+            hc_yAxis(title = list(text = "% Party Budget spent on targeting method"))%>%
             hc_xAxis(title = "", labels = list(style = list(fontSize = "10px"))) %>%
             hc_add_theme(hc_theme_google()) %>%
            highcharter::hc_tooltip(
