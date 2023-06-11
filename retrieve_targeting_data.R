@@ -61,11 +61,11 @@ more_data <- dir("data/reports", full.names = T) %>%
 
 source("utils.R")
 
-unlink("provincies/7", recursive = T, force = T)
-unlink("provincies/30", recursive = T, force = T)
+unlink("targeting/7", recursive = T, force = T)
+unlink("targeting/30", recursive = T, force = T)
 
-dir.create("provincies/7")
-dir.create("provincies/30")
+dir.create("targeting/7")
+dir.create("targeting/30")
 
 # rawadvertisers <- read_csv("data/advertisers - advertisers.csv")  %>%
 #   mutate(party_lab = case_when(
@@ -274,7 +274,7 @@ scraper <- possibly(scraper, otherwise = NULL, quiet = F)
 
 
 # if(F){
-#     # dir("provincies/7", full.names
+#     # dir("targeting/7", full.names
 # }
 # da30 <- readRDS("data/election_dat30.rds")
 # da7 <- readRDS("data/election_dat7.rds")

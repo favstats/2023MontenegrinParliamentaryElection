@@ -78,6 +78,9 @@ begin30 <- fin-lubridate::days(29)
 last7days_string <- paste0(create_date(begin7), " - ", paste(create_date(fin), lubridate::year(fin)))
 last30days_string <- paste0(create_date(begin30), " - ", paste(create_date(fin), lubridate::year(fin)))
 
+tibble(last7days = last7days_string,
+       last30days = last30days_string) %>% 
+  write_csv("../data/lastdays.csv")
 
 the_currency <- election_dat30 %>% 
   count(main_currency, sort = T) %>% 
