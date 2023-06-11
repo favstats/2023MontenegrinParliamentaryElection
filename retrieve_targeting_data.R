@@ -16,7 +16,7 @@ more_data <- dir("data/reports", full.names = T) %>%
         yo <- read.csv(.x) %>% mutate(path = .x)
         return(yo)
             }) %>%
-    mutate(date_produced = str_remove_all(path, "data/reports/FacebookAdLibraryReport_|_GR_last_30_days\\.csv")) %>%
+    mutate(date_produced = str_remove_all(path, "data/reports/FacebookAdLibraryReport_|_ME_last_30_days\\.csv|_ME_yesterday_advertisers|\\.csv")) %>%
     mutate(date_produced = lubridate::ymd(date_produced)) %>%
     janitor::clean_names()%>% #rename(advertiser_id = page_id) %>%
     mutate(spend = readr::parse_number(amount_spent_eur)) %>%
@@ -242,6 +242,9 @@ write_lines(all_dat %>% count(page_id, sort = T) %>% nrow, "n_advertisers.txt")
 # get_targeting(internal_page_ids$page_id[1], timeframe = "LAST_30_DAYS")
 # debugonce(get_targeting)
 # get_targeting("121264564551002", timeframe = "LAST_30_DAYS")
+# get_targeting("1420588184916754", timeframe = "LAST_30_DAYS")
+
+
 
 scraper <- function(.x, time = "7") {
 
@@ -251,7 +254,7 @@ scraper <- function(.x, time = "7") {
     mutate(tstamp = tstamp)
 
   if(nrow(yo)!=0){
-    path <- paste0(glue::glue("provincies/{time}/"),.x$page_id, ".rds")
+    path <- paste0(glue::glue("targeting/{time}/"),.x$page_id, ".rds")
     # if(file.exists(path)){
     #   ol <- read_rds(path)
     #
@@ -276,8 +279,8 @@ scraper <- possibly(scraper, otherwise = NULL, quiet = F)
 # da30 <- readRDS("data/election_dat30.rds")
 # da7 <- readRDS("data/election_dat7.rds")
 
-already_there <- dir("provincies/7", full.names = T) %>% 
-  str_remove_all("provincies/7/|\\.rds")
+already_there <- dir("targeting/7", full.names = T) %>% 
+  str_remove_all("targeting/7/|\\.rds")
 
 ### save seperately
 yo <- all_dat %>% #count(cntry, sort  =T) %>%
@@ -288,8 +291,8 @@ yo <- all_dat %>% #count(cntry, sort  =T) %>%
   split(1:nrow(.)) %>%
   map_dfr_progress(scraper, 7)
 
-already_there <- dir("provincies/30", full.names = T) %>% 
-  str_remove_all("provincies/30/|\\.rds")
+already_there <- dir("targeting/30", full.names = T) %>% 
+  str_remove_all("targeting/30/|\\.rds")
 
 yo <- all_dat %>% #count(cntry, sort  =T) %>%
     # filter(!(page_id %in% already_there)) %>%
@@ -301,7 +304,7 @@ yo <- all_dat %>% #count(cntry, sort  =T) %>%
 
 # saveRDS(yo, file = )
 library(tidyverse)
-da30  <- dir("provincies/30", full.names = T) %>%
+da30  <- dir("targeting/30", full.names = T) %>%
   map_dfr_progress(readRDS)  %>%
     mutate(total_spend_formatted = parse_number(total_spend_formatted)) %>%
     rename(page_id = internal_id) %>%
@@ -311,7 +314,7 @@ da30  <- dir("provincies/30", full.names = T) %>%
 #     count(party, sort = T) %>% View
 
 
-da7  <- dir("provincies/7", full.names = T) %>%
+da7  <- dir("targeting/7", full.names = T) %>%
     map_dfr_progress(readRDS) %>%
     mutate(total_spend_formatted = parse_number(total_spend_formatted)) %>%
     rename(page_id = internal_id) %>%

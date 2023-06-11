@@ -5,6 +5,10 @@ pacman::p_load(tidyverse, janitor, highcharter, httr, furrr, lubridate, tidytext
 
 setwd(here::here())
 
+source("party_utils.R")
+
+color_dat <- color_dat %>% rename(party = coalition)
+
 if(!dir.exists("data")) dir.create("data")
 
 get_mid <- function(spend_upper_bound, spend_lower_bound) {
@@ -17,7 +21,14 @@ get_mid <- function(spend_upper_bound, spend_lower_bound) {
 wtm_data <- read_csv("data/wtm-advertisers-me-2023-06-09T10_19_46.261Z.csv") %>% #names
   select(advertiser_id = advertisers_platforms.advertiser_platform_ref,
          advertiser_name = name, party = entities.short_name)  %>%
-  mutate(advertiser_id = as.character(advertiser_id)) 
+  mutate(advertiser_id = as.character(advertiser_id))  %>% 
+  mutate(party = case_when(
+    str_detect(advertiser_id, "638633769597292") ~ "ASh",
+    T ~ party 
+  )) %>% 
+  filter(!(party %in% c("Vlada Crne Gore", "Drugo"))) %>% 
+  left_join(party_dict) %>% 
+  mutate(party = coalition)
 
 
 assign_colors <- function(dat, n = 12) {
@@ -157,7 +168,7 @@ cat("\n\nFB Data: Merge data\n\n")
 fb_dat <- df_imp %>% 
   rename(advertiser_name = page_name) %>% 
   rename(advertiser_id = page_id) %>% 
-  bind_rows(fb_dat %>% select(-party)) %>%
+  bind_rows(fb_dat %>% select(-party, -coalition)) %>%
   distinct(id, .keep_all = T) %>%
   left_join(wtm_data %>% select(-advertiser_name)) #%>% 
   # mutate(advertiser_name = case_when(

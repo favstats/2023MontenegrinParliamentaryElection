@@ -111,11 +111,8 @@ here::here("")
 
 ```{r}
 
-color_dat <- tibble(
-  colors = c("#e6194B", "#f5911d", "#00008b", "#00FF00", "#524fa1", "#ff1a1a", "#f1c851", "#f04949", "#6495ed", "#2598d4", "#89cff0", "#89cff0", "#9A6324", "#fffac8", "#800000"),
-  party = c("Drugo", "DCG", "DF", "URA", "DPS", "SDP", "ES!", "SD", "SNP", "UCG", "Vlada Crne Gore", "Demos", "HGI", "LP", "Prava Crna Gora"))
 
-
+source("../party_utils.R")
 source("../utils.R")
 ```
 
@@ -125,37 +122,23 @@ source("../utils.R")
 election_dat30 <- readRDS("../data/election_dat30.rds") %>% 
     rename(internal_id = page_id)  %>% 
   mutate(party = case_when(
-    str_detect(party, "ΠΑΣΟΚ")  ~ "PASOK",
-    str_detect(party, "ΝΔ")  ~ "ND",
-    str_detect(party, "Συνασπισμός Ριζοσπαστικής Αριστεράς")  ~ "SYRIZA",
-    str_detect(party, "ΕΛ")  ~ "EL",
-    str_detect(party, "25")  ~ "MeRA25",
-    T ~ party  )) %>% 
-  mutate(party = case_when(
-    str_detect(page_name, "Νίκος Συρμαλένιος") ~ "SYRIZA",
-    # str_detect(page_name, "Stefanos Tyros") ~ "Volt",
-    # str_detect(page_name, "Πατριωτική Ένωση - Πρόδρομος Εμφιετζόγλου") ~ "Patriotic Union",
+    str_detect(internal_id, "638633769597292") ~ "ASh",
     T ~ party 
   )) %>% 
-  filter(!(party %in% c("GOV", "OTHER", "ΠΕ")))
+  filter(!(party %in% c("Vlada Crne Gore", "Drugo"))) %>% 
+  left_join(party_dict) %>% 
+  mutate(party = coalition)
 
 
 election_dat7 <- readRDS("../data/election_dat7.rds") %>% 
     rename(internal_id = page_id)   %>% 
   mutate(party = case_when(
-    str_detect(party, "ΠΑΣΟΚ")  ~ "PASOK",
-    str_detect(party, "ΝΔ")  ~ "ND",
-    str_detect(party, "Συνασπισμός Ριζοσπαστικής Αριστεράς")  ~ "SYRIZA",
-    str_detect(party, "ΕΛ")  ~ "EL",
-    str_detect(party, "25")  ~ "MeRA25",
-    T ~ party  )) %>% 
-  mutate(party = case_when(
-    str_detect(page_name, "Νίκος Συρμαλένιος") ~ "SYRIZA",
-    # str_detect(page_name, "Stefanos Tyros") ~ "Volt",
-    # str_detect(page_name, "Πατριωτική Ένωση - Πρόδρομος Εμφιετζόγλου") ~ "Patriotic Union",
+    str_detect(internal_id, "638633769597292") ~ "ASh",
     T ~ party 
   )) %>% 
-  filter(!(party %in% c("GOV", "OTHER", "ΠΕ")))
+  filter(!(party %in% c("Vlada Crne Gore", "Drugo")))  %>% 
+  left_join(party_dict) %>% 
+  mutate(party = coalition)
 
 # saveRDS(election_dat30, "../data/election_dat30.rds")
 # saveRDS(election_dat7, "../data/election_dat7.rds")
@@ -168,10 +151,6 @@ begin30 <- fin-lubridate::days(29)
 last7days_string <- paste0(create_date(begin7), " - ", paste(create_date(fin), lubridate::year(fin)))
 last30days_string <- paste0(create_date(begin30), " - ", paste(create_date(fin), lubridate::year(fin)))
 
-write_csv(tibble(
-  last30days = last30days_string,
-  last7days = last7days_string,
-), "../data/lastdays.csv")
 
 the_currency <- election_dat30 %>% 
   count(main_currency, sort = T) %>% 
@@ -330,10 +309,13 @@ more_data <- dir("../data/reports", full.names = T) %>%
   drop_na(date_produced) %>% 
     janitor::clean_names()%>% #rename(advertiser_id = page_id) %>%
     mutate(spend = readr::parse_number(amount_spent_eur)) %>%
-    mutate(spend = ifelse(spend == 100, 1, spend)) %>%
+    mutate(spend = ifelse(spend == 100, 50, spend)) %>%
     # distinct(page_id, .keep_all = T) %>%
     filter(str_detect(page_name, "Global Space Conference on Climate Change|de Alliantie|PvdA - GroenLinks", negate = T)) %>%
     mutate(page_id = as.character(page_id))
+
+
+color_dat <- color_dat %>% mutate(party  =coalition)
 
 # me_advertisers <- read_csv("../data/wtm-advertisers-gr-2023-05-20T08_49_00.571Z.csv")
 hc_data <-  more_data %>%
@@ -354,7 +336,7 @@ hc_data <-  more_data %>%
   group_by(party) %>%
   mutate(total_spend = max(spend)) %>%
   ungroup()  %>%
-  left_join(color_dat, by = "party") %>%
+  left_join(color_dat %>% mutate(party  =coalition), by = "party") %>%
   mutate(party = as.factor(party)) %>%
   mutate(party = fct_reorder(party, total_spend))
 
@@ -382,7 +364,15 @@ hc_data %>%
     positioner = JS("function (labelWidth, labelHeight, point) {
         return { x: 200, y: this.chart.plotTop };
     }")
-  )
+  ) %>%
+  hc_chart(events = list(load = JS("function() {
+  var chart = this;
+  chart.series[0].setVisible(false)
+  chart.series[1].setVisible(false)
+  chart.series[2].setVisible(false)
+  chart.series[3].setVisible(false)
+  chart.series[4].setVisible(false)
+  }"))) 
 # hc_colors(levels(hc_data$party))
 # hc_colors(color_dat$colors[as.character(unique(hc_data$party))])
 
@@ -461,36 +451,19 @@ x %>%
     
 }
 
-# debugonce(get_table_dat)
-get_table_dat(election_dat30, party) %>% 
-  arrange(desc(parse_number(`Total Spend`))) %>% 
-  gt(
-    rowname_col = "party_col"
-    # groupname_col = "group"
-  ) %>% 
-  fmt_markdown(columns = everything())  %>% 
-  cols_align(
-    align = "center"
-  ) %>% 
-  gtExtras::gt_theme_538()  %>%
-add_ribbons("Drugo", "#e6194B") %>%
-add_ribbons("DCG", "#f5911d") %>%
-add_ribbons("DF", "#00008b") %>%
-add_ribbons("URA", "green") %>%
-add_ribbons("DPS", "#524fa1") %>%
-add_ribbons("SDP", "#ff1a1a") %>%
-add_ribbons("ES!", "#f1c851") %>%
-add_ribbons("SD", "#f04949") %>%
-add_ribbons("SNP", "#6495ed") %>%
-# add_ribbons("UCG", "#2598d4")# %>%
-# add_ribbons("Vlada Crne Gore", "#89cff0") #%>%
-add_ribbons("Demos", "#89cff0") %>%
-add_ribbons("HGI", "#9A6324") %>%
-add_ribbons("LP", "#fffac8") %>%
-add_ribbons("Prava Crna Gora", "#800000")
+the_table30 <- get_table_dat(election_dat30, party) %>% 
+  arrange(desc(parse_number(`Total Spend`))) 
 
 
-# election_dat30 %>% count(party, sort = T)
+add_ribbons_code <- the_table30 %>%
+  left_join(color_dat %>% mutate(party_col = party)) %>% 
+  mutate(ribbons_code = sprintf("add_ribbons(\"%s\", \"%s\")", party_col, colors)) %>%
+  pull(ribbons_code) %>%
+  # paste(collapse = "\n") %>%
+  paste(collapse = "%>%")  # Add pipe after each ribbon
+
+eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = \"center\") %>% gtExtras::gt_theme_538() %>% ", add_ribbons_code)))
+
 ```
 
 
@@ -504,33 +477,18 @@ In total, political parties spend `r paste0(currency_symbol,scales::comma_format
 
 ```{r}
 
-get_table_dat(election_dat7, party) %>% 
-  arrange(desc(parse_number(`Total Spend`))) %>% 
-  gt(
-    rowname_col = "party_col"
-    # groupname_col = "group"
-  ) %>% 
-  fmt_markdown(columns = everything())  %>% 
-  cols_align(
-    align = "center"
-  ) %>% 
-  gtExtras::gt_theme_538() %>% 
-  tab_options(table.width = pct(100))  %>%
-add_ribbons("Drugo", "#e6194B") %>%
-add_ribbons("DCG", "#f5911d") %>%
-add_ribbons("DF", "#00008b") %>%
-add_ribbons("URA", "green") %>%
-add_ribbons("DPS", "#524fa1") %>%
-add_ribbons("SDP", "#ff1a1a") %>%
-add_ribbons("ES!", "#f1c851") %>%
-add_ribbons("SD", "#f04949") %>%
-add_ribbons("SNP", "#6495ed") %>%
-# add_ribbons("UCG", "#2598d4")# %>%
-# add_ribbons("Vlada Crne Gore", "#89cff0") #%>%
-add_ribbons("Demos", "#89cff0") %>%
-add_ribbons("HGI", "#9A6324") %>%
-add_ribbons("LP", "#fffac8") %>%
-add_ribbons("Prava Crna Gora", "#800000")
+the_table7 <- get_table_dat(election_dat7, party) %>% 
+  arrange(desc(parse_number(`Total Spend`))) 
+
+
+add_ribbons_code <- the_table7 %>%
+  left_join(color_dat %>% mutate(party_col = party)) %>% 
+  mutate(ribbons_code = sprintf("add_ribbons(\"%s\", \"%s\")", party_col, colors)) %>%
+  pull(ribbons_code) %>%
+  # paste(collapse = "\n") %>%
+  paste(collapse = "%>%")  # Add pipe after each ribbon
+
+eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = \"center\") %>% gtExtras::gt_theme_538() %>% ", add_ribbons_code)))
 
 ```
 

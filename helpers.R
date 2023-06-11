@@ -486,6 +486,7 @@ hc_plotter <- function(plot_dat, filters, plot_type, plot_type_sub, mapdata = NU
       } else if (platform == "Facebook"){
         
         hc_data <- hc_data %>% 
+          drop_na(age, advertiser_name) %>% 
           data_to_boxplot(percentage, advertiser_name, age)
         
         
@@ -493,8 +494,14 @@ hc_plotter <- function(plot_dat, filters, plot_type, plot_type_sub, mapdata = NU
           hc_xAxis(type = "category") %>%
           hc_add_series_list(hc_data)%>%
           hc_yAxis(reversed = F, min = 0, title = list(text = trans_internal$plot_yaxis_age_fb)) %>%
-          hc_size(width=700)        # %>% 
-        # hc_chart(inverted = TRUE)
+          hc_size(width=700) %>%
+          hc_chart(events = list(load = JS("function() {
+  var chart = this;
+  chart.series[1].setVisible(false)
+  chart.series[2].setVisible(false)
+  chart.series[3].setVisible(false)
+  chart.series[4].setVisible(false)
+  }"))) 
         
       }
     }
@@ -502,9 +509,11 @@ hc_plotter <- function(plot_dat, filters, plot_type, plot_type_sub, mapdata = NU
     
   }
   
+  title_text <- str_replace(title_text, "targeting with", "impressions of")
+  
   hc_plot %>% 
     hc_title(
-      text = title_text
+      text = str_replace(title_text, "targeting met Facebook advertenties", "impressions of Facebook ads")
     ) %>%
     hc_subtitle(
       text = subtitle_text

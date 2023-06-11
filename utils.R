@@ -3,7 +3,7 @@ calc_targeting <- function(only_tags) {
     total_sppppeen <- only_tags %>%
         distinct(internal_id, .keep_all = T)  %>%
         # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-        mutate(total_spend = ifelse(total_spend == 100, 1, total_spend)) %>%
+        mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
         select(internal_id, total_spend) %>%
         arrange(desc(total_spend)) %>%
         summarize(total_spend = sum(total_spend))
@@ -15,7 +15,7 @@ calc_targeting <- function(only_tags) {
         slice(1) %>%
         ungroup() %>%
         # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-        mutate(total_spend = ifelse(total_spend == 100, 1, total_spend)) %>%
+        mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
         mutate(spend_per = total_spend * total_spend_pct) %>%
         select(internal_id, spend_per) %>%
         arrange(desc(spend_per)) %>%
@@ -29,7 +29,7 @@ calc_targeting <- function(only_tags) {
         slice(1) %>%
         ungroup() %>%
         # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-        mutate(total_spend = ifelse(total_spend == 100, 1, total_spend)) %>%
+        mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
         mutate(spend_per = total_spend * total_spend_pct) %>%
         select(internal_id, spend_per, location_type) %>%
         arrange(desc(spend_per)) %>%
@@ -49,7 +49,7 @@ calc_targeting <- function(only_tags) {
         slice(1) %>%
         ungroup() %>%
         # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-        mutate(total_spend = ifelse(total_spend == 100, 1, total_spend)) %>%
+        mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
         mutate(spend_per = total_spend * total_spend_pct) %>%
         select(internal_id, spend_per) %>%
         summarize(spend_per = sum(spend_per))  %>%
@@ -64,7 +64,7 @@ calc_targeting <- function(only_tags) {
         slice(1) %>%
         ungroup() %>%
         # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-        mutate(total_spend = ifelse(total_spend == 100, 1, total_spend)) %>%
+        mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
         mutate(spend_per = total_spend * total_spend_pct) %>%
         select(internal_id, spend_per) %>%
         summarize(spend_per = sum(spend_per))  %>%
@@ -79,7 +79,7 @@ calc_targeting <- function(only_tags) {
         slice(1) %>%
         ungroup() %>%
         # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-        mutate(total_spend = ifelse(total_spend == 100, 1, total_spend)) %>%
+        mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
         mutate(spend_per = total_spend * total_spend_pct) %>%
         select(internal_id, spend_per) %>%
         summarize(spend_per = sum(spend_per))  %>%
@@ -95,7 +95,7 @@ calc_targeting <- function(only_tags) {
         slice(1) %>%
         ungroup() %>%
         # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-        mutate(total_spend = ifelse(total_spend == 100, 1, total_spend)) %>%
+        mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
         mutate(spend_per = total_spend * total_spend_pct) %>%
         select(internal_id, spend_per) %>%
         summarize(spend_per = sum(spend_per))  %>%
@@ -111,7 +111,7 @@ calc_targeting <- function(only_tags) {
         slice(1) %>%
         ungroup() %>%
         # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-        mutate(total_spend = ifelse(total_spend == 100, 1, total_spend)) %>%
+        mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
         mutate(spend_per = total_spend * total_spend_pct) %>%
         select(internal_id, spend_per) %>%
         summarize(spend_per = sum(spend_per))  %>%
