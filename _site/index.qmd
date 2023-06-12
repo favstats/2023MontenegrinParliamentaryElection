@@ -393,7 +393,7 @@ hc_data %>%
 ### `r last30days_string` (Last 30 days)
 
 
-In total, political parties spend `r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted))` and ran `r sum30$total_num_ads` ad copies on Meta in this timeframe.
+In total, political parties spent `r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted))` and ran `r sum30$total_num_ads` ads on Meta in this period.
 
 
 ```{r}
@@ -471,7 +471,7 @@ eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_mar
 
 ### `r last7days_string` (Last 7 days)
 
-In total, political parties spend `r paste0(currency_symbol,scales::comma_format()(sum7$total_spend_formatted))` and ran `r sum7$total_num_ads` ad copies on Meta in this timeframe.
+In total, political parties spent `r paste0(currency_symbol,scales::comma_format()(sum7$total_spend_formatted))` and ran `r sum7$total_num_ads` ads on Meta in this period
 
 
 
@@ -480,6 +480,8 @@ In total, political parties spend `r paste0(currency_symbol,scales::comma_format
 the_table7 <- get_table_dat(election_dat7, party) %>% 
   arrange(desc(parse_number(`Total Spend`))) 
 
+saveRDS(the_table7, "../data/the_table7.rds")
+the_table7 <- readRDS("../data/the_table7.rds")
 
 add_ribbons_code <- the_table7 %>%
   left_join(color_dat %>% mutate(party_col = party)) %>% 
@@ -488,7 +490,7 @@ add_ribbons_code <- the_table7 %>%
   # paste(collapse = "\n") %>%
   paste(collapse = "%>%")  # Add pipe after each ribbon
 
-eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = \"center\") %>% gtExtras::gt_theme_538() %>% ", add_ribbons_code)))
+eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = \"center\") %>% gtExtras::gt_theme_538() %>% ", add_ribbons_code)))
 
 ```
 
