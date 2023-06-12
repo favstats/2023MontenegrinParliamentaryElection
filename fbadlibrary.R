@@ -322,6 +322,12 @@ cat("\n\nFB Data: Get age/gender III\n\n")
 ### Facebook setup
 # dutch_parties_fb <- c("VVD", "D66", "FvD", "SP", "GroenLinks", "Volt Nederland", "PvdA", "CDA", "PvdD", "ChristenUnie", "SGP", "DENK", "50PLUS", "BIJ1", "Ja21")
 
+# age_gender_targeted %>% 
+#   drop_na(party) %>% 
+#   mutate(percentage = as.numeric(percentage)) %>% 
+#   ggplot(aes(party, percentage)) +
+#   geom_boxplot() +
+#   facet_wrap(~gender)
 
 fb_gender <- age_gender_targeted  %>% 
   # filter(advertiser_id %in% dutch_parties_fb) %>%
