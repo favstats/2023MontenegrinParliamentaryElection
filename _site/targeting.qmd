@@ -41,6 +41,8 @@ options(scipen = 999)
 
 source("../utils.R")
 source("../party_utils.R")
+
+most_left_party <- "SDP"
 ```
 
 
@@ -177,7 +179,10 @@ gg %>%
   highcharter::hc_credits(
     enabled = TRUE,
     text = "Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."
-  )
+  ) %>%
+    hc_exporting(
+      enabled = TRUE
+    )
 
 
 
@@ -253,7 +258,10 @@ plot_geography <- function(x) {
               headerFormat = ""
             ) %>%
             hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>% 
-        hc_size(height = 300)
+        hc_size(height = 300) %>%
+    hc_exporting(
+      enabled = TRUE
+    )
     }
     )
 
@@ -361,7 +369,10 @@ gg %>%
   highcharter::hc_credits(
     enabled = TRUE,
     text = "Source: Meta Ad Library. Data Viz: Fabio Votta (@favstats)."
-  )
+  ) %>%
+    hc_exporting(
+      enabled = TRUE
+    )
 
 ```
 
@@ -530,7 +541,10 @@ generate_plots <- function(data) {
               headerFormat = ""
             ) %>%
             hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>% 
-        hc_size(height = 300)
+        hc_size(height = 300) %>%
+    hc_exporting(
+      enabled = TRUE
+    )
     }
     )
   
@@ -625,9 +639,9 @@ Here, we show the *top most contested audiences*, i.e. where all parties have sp
 ```{r, fig.width  = 13, fig.height=15}
 
 
-get_contested_graph <- function(ppp) {
+get_contested_graph <- function(ppp, minamount = 50) {
     
-    
+    # ppp <- election_dat30
 interest_targeting <-  ppp %>% 
     mutate(total_spend = total_spend_formatted) %>% 
     filter(type == "detailed") %>%
@@ -647,7 +661,7 @@ interest_targeting <-  ppp %>%
 contested_dat <- interest_targeting %>% 
   filter(!is_exclusion) %>% 
   # filter(total_spend >= 40000) %>% 
-  filter(total_spend >= 50) %>%
+  filter(total_spend >= minamount) %>%
   add_count(value) %>% 
   filter(n >= 3) %>% 
     # distinct(party, value) %>% 
@@ -655,31 +669,29 @@ contested_dat <- interest_targeting %>%
   mutate(total_spenderino = sum(total_spend)) %>% 
   mutate(perc = total_spend/total_spenderino) %>%
   # mutate(value = str_remove_all(value, "INTERESTS: |DEMOGRAPHICS: |BEHAVIORS: ")) %>% 
-  mutate(value = str_replace_all(value, " \\s*\\([^\\)]+\\)", ""))
+  mutate(value = str_replace_all(value, " \\s*\\([^\\)]+\\)", "")) %>% 
+    ungroup()
 
 
   the_order <- contested_dat %>%
-    filter(party == "SDP") %>%
+    filter(party == most_left_party) %>%
     arrange(desc(perc)) %>%
     pull(value) %>%
     unique() %>% 
     c(setdiff(contested_dat$value, .))
   
   lab_dat <- contested_dat %>%
-    filter(party == "SDP") %>%
+    filter(party == most_left_party) %>%
     mutate(labb = paste0(currency_symbol, scales::comma(round(total_spenderino)))) %>%
-    select(party, value, labb)
-  
-  total_spending_dat <- contested_dat %>% 
-    drop_na(value) %>%
-    distinct(value, total_spenderino) %>% 
-    mutate(value2 = factor(value, the_order)) %>% 
+    select(party, value, labb, total_spenderino) %>% 
+    mutate(value = factor(value, the_order)) %>% 
     arrange(value)
   
-  annotations <- lapply(1:nrow(total_spending_dat), function(i) {
+  
+  annotations <- lapply(1:nrow(lab_dat), function(i) {
   list(
     point = list(x = i - 1, y = 1, xAxis = 0, yAxis = 0),
-    text = paste0("Total Spend on Audience: ",  currency_symbol, scales::comma(round(total_spending_dat$total_spenderino[i]))),
+    text = paste0("Total Spend on Audience: ",  currency_symbol, scales::comma(round(lab_dat$total_spenderino[i]))),
           # align = "right",
           # verticalAlign = "middle",
           x = 10,
@@ -688,16 +700,20 @@ contested_dat <- interest_targeting %>%
   )
 })
   
-  contested_dat %>%
+  hc_dat <- contested_dat %>%
     left_join(lab_dat) %>%
     left_join(color_dat) %>% 
     mutate(perc = 100*perc) %>% 
-    mutate(value = factor(value, the_order)) %>%
-    drop_na(value) %>%
+    drop_na(value) %>% 
+    mutate(value = factor(value, the_order))  %>% 
+    mutate(party = fct_relevel(party, most_left_party, after = Inf)) 
+  
+  hc_dat %>% 
     hchart(type = "bar", hcaes(x = value, y = perc, group = party, color = colors), showInLegend = TRUE  # Set colorByPoint to TRUE to match legend colors with fill colors
 ) %>%
     hc_plotOptions(bar = list(stacking = "normal")) %>%
-    hc_xAxis(title = list(text = "Targeting criteria"), labels = list(style = list(fontSize = "10px"))) %>%
+    hc_xAxis(title = list(text = "Targeting criteria"), labels = list(style = list(fontSize = "10px")),
+                 categories = as.list(the_order)) %>%
     hc_yAxis(title = list(text = "% of budget spent on targeting method"), labels = list(format = "{value}%"))%>%
             # hc_add_theme(hc_theme_google()) %>%
   highcharter::hc_tooltip(
@@ -710,9 +726,11 @@ contested_dat <- interest_targeting %>%
       text = "Source: Meta Ad Library and data compiled by Who Targets Me. Data Viz: Fabio Votta (@favstats)."
     )    %>%
   hc_annotations(list(labels = annotations)) %>%
-    hc_colors(color_dat %>% filter(party %in% contested_dat$party) %>%  arrange(party) %>% pull(colors)) 
+    hc_colors(hc_dat %>% distinct(party, .keep_all = T) %>%  filter(party %in% contested_dat$party) %>%  arrange(party) %>% pull(colors))  %>%
+    hc_exporting(
+      enabled = TRUE
+    )
 }
-
 
   
 get_contested_graph(election_dat30)
@@ -1069,7 +1087,10 @@ age_targeting <- election_dat30 %>%
               headerFormat = ""
             ) %>%
             hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>% 
-        hc_size(height = 300)
+        hc_size(height = 300) %>%
+    hc_exporting(
+      enabled = TRUE
+    )
     }
     )
 
@@ -1153,7 +1174,10 @@ age_targeting7 <- election_dat7 %>%
               headerFormat = ""
             ) %>%
             hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>% 
-        hc_size(height = 300)
+        hc_size(height = 300) %>%
+    hc_exporting(
+      enabled = TRUE
+    )
     }
     )
 
@@ -1241,7 +1265,10 @@ charts <- gender_targeting %>%
         headerFormat = ""
       ) %>%
       hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>% 
-      hc_size(height = 300)
+      hc_size(height = 300) %>%
+    hc_exporting(
+      enabled = TRUE
+    )
   })
 
 
@@ -1313,7 +1340,10 @@ charts <- gender_targeting %>%
         headerFormat = ""
       ) %>%
       hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>% 
-      hc_size(height = 300)
+      hc_size(height = 300) %>%
+    hc_exporting(
+      enabled = TRUE
+    )
   })
 
 
@@ -1437,7 +1467,10 @@ charts <- educ_targeting %>%
         headerFormat = ""
       ) %>%
       hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>% 
-      hc_size(height = 300)
+      hc_size(height = 300) %>%
+    hc_exporting(
+      enabled = TRUE
+    )
   })
 
 
@@ -1509,7 +1542,10 @@ charts <- educ_targeting %>%
         headerFormat = ""
       ) %>%
       hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>% 
-      hc_size(height = 300)
+      hc_size(height = 300) %>%
+    hc_exporting(
+      enabled = TRUE
+    )
   })
 
 
@@ -1638,7 +1674,10 @@ charts <- job_targeting %>%
         headerFormat = ""
       ) %>%
       hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>% 
-      hc_size(height = 300)
+      hc_size(height = 300) %>%
+    hc_exporting(
+      enabled = TRUE
+    )
   })
 
 

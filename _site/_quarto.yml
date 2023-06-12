@@ -3,7 +3,7 @@ project:
   output-dir: ../docs
 
 website:
-  title: "2023 Montenegrin Election Dashboard"
+  title: "🇲🇪 2023 Montenegrin Election Dashboard"
   navbar:
     left:
       - href: index.qmd
