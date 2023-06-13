@@ -1159,7 +1159,7 @@ age_targeting7 <- election_dat7 %>%
                                  "55-64", "65+") %>% rev)) %>% 
   ungroup()
   
-    charts <- age_targeting %>%
+    charts <- age_targeting7 %>%
   mutate(spend_perlab = scales::comma(round(spend_per))) %>% 
   mutate(perc = perc*100) %>% 
     split(.$party) %>%
